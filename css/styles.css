@@ -537,7 +537,7 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--bg-card);
   border: 1px solid var(--border-card);
   border-radius: 20px;
-  padding: 12px;
+  overflow: hidden;
   transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
   display: flex;
   flex-direction: column;
@@ -554,7 +554,6 @@ h1, h2, h3, h4, h5, h6 {
   aspect-ratio: 16 / 10;
   overflow: hidden;
   background: #1a1a1a;
-  border-radius: 12px;
 }
 
 .product-card__thumb img {
