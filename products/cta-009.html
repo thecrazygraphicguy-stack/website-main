@@ -944,21 +944,22 @@ document.querySelectorAll('.product-video__thumb').forEach(function(thumb) {
   });
 });
 
-/* QR card — show after scrolling past buy button */
+/* QR card — visible on load, hides when scrolling down */
 var qrCard = document.getElementById('qrCard');
 var qrDismissed = false;
+qrCard.classList.add('visible');
 var qrObserver = new IntersectionObserver(function(entries) {
   if (qrDismissed) return;
   entries.forEach(function(entry) {
-    if (!entry.isIntersecting) {
+    if (entry.isIntersecting) {
       qrCard.classList.add('visible');
     } else {
       qrCard.classList.remove('visible');
     }
   });
-}, { threshold: 0 });
-var buyBtn = document.querySelector('.btn--buy');
-if (buyBtn) qrObserver.observe(buyBtn);
+}, { threshold: 0.7 });
+var videoSection = document.querySelector('.product-video');
+if (videoSection) qrObserver.observe(videoSection);
 document.getElementById('qrClose').addEventListener('click', function() {
   qrDismissed = true;
   qrCard.classList.remove('visible');
