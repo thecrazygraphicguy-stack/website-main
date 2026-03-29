@@ -957,8 +957,8 @@ var qrObserver = new IntersectionObserver(function(entries) {
     }
   });
 }, { threshold: 0 });
-var buyBtn = document.querySelector('.btn--buy');
-if (buyBtn) qrObserver.observe(buyBtn);
+var buySection = document.querySelector('.product-content');
+if (buySection) qrObserver.observe(buySection);
 document.getElementById('qrClose').addEventListener('click', function() {
   qrDismissed = true;
   qrCard.classList.remove('visible');
