@@ -957,7 +957,7 @@ var qrObserver = new IntersectionObserver(function(entries) {
       qrCard.classList.remove('visible');
     }
   });
-}, { threshold: 0.3 });
+}, { threshold: 0.7 });
 var videoSection = document.querySelector('.product-video');
 if (videoSection) qrObserver.observe(videoSection);
 document.getElementById('qrClose').addEventListener('click', function() {
