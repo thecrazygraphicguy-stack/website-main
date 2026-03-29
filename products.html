@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Products — The Crazy Graphic Guy</title>
+<meta name="description" content="Animated YouTube CTA graphics and live streaming assets. Drag & drop into your timeline. No plugins needed.">
+<meta property="og:title" content="All Products — The Crazy Graphic Guy">
+<meta property="og:description" content="Motion assets for creators who edit their own videos. YouTube CTAs and Live Streaming overlays.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thecrazygraphicguy.com/products">
+<link rel="canonical" href="https://thecrazygraphicguy.com/products">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;300;400;500&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'TASA Orbiter';
+  src: url('/assets/fonts/TASAOrbiter-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400 800;
+  font-display: swap;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg-deep: #07080f; --bg-card: rgba(14, 16, 36, 0.85); --bg-card-solid: #0e1024;
+  --accent: #00e5ff; --accent-dim: rgba(0, 229, 255, 0.15); --accent-glow: rgba(0, 229, 255, 0.3);
+  --neon-cyan: #00e5ff; --neon-pink: #ff2d6b; --neon-green: #00ff88;
+  --neon-amber: #ffa726; --neon-purple: #b44dff;
+  --text-primary: #e8e8f0; --text-body: #999999; --text-dim: #5a5a5a;
+  --border-subtle: rgba(0, 229, 255, 0.1); --border-glow: rgba(0, 229, 255, 0.3);
+  --radius: 14px; --radius-sm: 8px; --container: 1140px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; font-weight: 300; background: var(--bg-deep); color: var(--text-body); min-height: 100vh; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+.container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 1.5rem; }
+
+/* Background */
+.bg-grid { position: fixed; inset: 0; background-image: linear-gradient(rgba(0, 229, 255, 0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 229, 255, 0.025) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; z-index: 0; }
+.bg-glow { position: fixed; width: 600px; height: 600px; border-radius: 50%; filter: blur(160px); pointer-events: none; z-index: 0; }
+.bg-glow--cyan { background: var(--accent); top: -200px; right: -200px; opacity: 0.10; }
+.bg-glow--pink { background: var(--neon-pink); bottom: -300px; left: -200px; opacity: 0.05; }
+
+/* Decorative category icons */
+.deco-icons {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.deco-icon {
+  position: absolute;
+  opacity: 0.06;
+  transition: opacity 0.8s ease;
+}
+.deco-icon--yt {
+  width: 320px; height: 320px;
+  top: 18%;
+  right: -60px;
+  animation: deco-float-1 8s ease-in-out infinite;
+}
+.deco-icon--twitch {
+  width: 260px; height: 260px;
+  bottom: 25%;
+  left: -50px;
+  animation: deco-float-2 10s ease-in-out infinite;
+}
+.deco-icon--kick {
+  width: 200px; height: 200px;
+  bottom: 10%;
+  right: 5%;
+  animation: deco-float-3 9s ease-in-out infinite;
+}
+.deco-icon img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+}
+@keyframes deco-float-1 {
+  0%, 100% { transform: translateY(0) rotate(-8deg); }
+  50% { transform: translateY(-20px) rotate(-4deg); }
+}
+@keyframes deco-float-2 {
+  0%, 100% { transform: translateY(0) rotate(6deg); }
+  50% { transform: translateY(15px) rotate(10deg); }
+}
+@keyframes deco-float-3 {
+  0%, 100% { transform: translateY(0) rotate(12deg); }
+  50% { transform: translateY(-12px) rotate(8deg); }
+}
+
+/* When filtering, boost relevant icons */
+.deco-icon.highlight { opacity: 0.12; }
+.deco-icon.dim { opacity: 0.02; }
+.nav { position: sticky; top: 0; z-index: 100; padding: 12px 1.5rem 0; max-width: var(--container); margin: 0 auto; }
+.nav__bar { display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 56px; background: rgba(14, 16, 36, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--border-subtle); border-radius: 14px; transition: box-shadow 0.3s ease, border-color 0.3s ease; }
+.nav.scrolled .nav__bar { box-shadow: 0 4px 30px rgba(0, 229, 255, 0.06); border-color: var(--border-glow); }
+.nav__mobile-menu { display: none; }
+.nav__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav__logo-avatar { width: 36px; height: 36px; border-radius: 50%; }
+.nav__logo-text { height: 20px; width: auto; opacity: 0.9; }
+.nav__links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav__link { font-size: 13px; font-weight: 400; color: var(--text-body); text-decoration: none; transition: color 0.2s; letter-spacing: -0.01em; }
+.nav__link:hover { color: var(--text-primary); }
+.nav__link--active { color: var(--accent); }
+.nav__cta { font-family: 'TASA Orbiter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: -0.01em; color: var(--bg-deep); background: var(--accent); padding: 8px 18px; border-radius: 100px; text-decoration: none; transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1); box-shadow: 0 0 20px rgba(0, 229, 255, 0.15); }
+.nav__cta:hover { transform: translateY(-1px); box-shadow: 0 0 35px rgba(0, 229, 255, 0.3); }
+.nav__cta:active { transform: translateY(0); }
+.nav__hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.nav__hamburger span { width: 22px; height: 1.5px; background: var(--text-body); border-radius: 2px; transition: all 0.3s; }
+
+/* Hero */
+.hero {
+  position: relative; z-index: 1;
+  padding: 100px 0 40px;
+  text-align: center;
+}
+.hero__badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: -0.01em; text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  padding: 6px 16px; border-radius: 100px;
+  margin-bottom: 28px;
+}
+.hero__badge-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--neon-green);
+  animation: breathe 2s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+.hero__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800; color: var(--text-primary);
+  line-height: 1.1; letter-spacing: -0.03em;
+  margin-bottom: 16px;
+}
+.hero__title-accent {
+  background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero__sub {
+  font-size: 16px; font-weight: 300;
+  color: var(--text-body);
+  max-width: 500px; margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* Filter tabs */
+.filter-tabs {
+  position: relative; z-index: 1;
+  padding: 0 0 48px;
+}
+.filter-tabs__inner {
+  display: flex; justify-content: center;
+  gap: 8px; flex-wrap: wrap;
+}
+.filter-tab {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 500;
+  color: var(--text-body);
+  background: none;
+  border: 1px solid var(--border-subtle);
+  padding: 10px 20px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.filter-tab__icon {
+  width: 20px; height: 20px;
+  border-radius: 4px;
+  object-fit: contain;
+}
+.filter-tab:hover {
+  color: var(--text-primary);
+  border-color: var(--border-glow);
+}
+.filter-tab.active {
+  color: var(--bg-deep);
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+}
+.filter-tab__count {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px; font-weight: 700;
+  opacity: 0.6;
+  margin-left: 6px;
+}
+
+/* Products grid */
+.products-section {
+  position: relative; z-index: 1;
+  padding: 0 0 100px;
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.product-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+.product-card:hover {
+  border-color: var(--border-glow);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 229, 255, 0.08);
+}
+.product-card[data-cat="live-streaming"]:hover {
+  border-color: rgba(180, 77, 255, 0.25);
+  box-shadow: 0 12px 40px rgba(180, 77, 255, 0.06);
+}
+.product-card.hidden { display: none; }
+.product-card__img-wrap {
+  position: relative; overflow: hidden;
+}
+.product-card__img {
+  width: 100%; display: block;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.product-card:hover .product-card__img { transform: scale(1.04); }
+.product-card__price {
+  position: absolute; top: 10px; right: 10px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px; font-weight: 700;
+  color: var(--accent);
+  background: rgba(7, 8, 15, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 4px 10px; border-radius: 100px;
+  border: 1px solid rgba(0, 229, 255, 0.15);
+}
+.product-card__cat-badge {
+  position: absolute; top: 10px; left: 10px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 9px; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px; border-radius: 100px;
+  backdrop-filter: blur(8px);
+  background: rgba(7, 8, 15, 0.85);
+}
+.product-card__cat-badge--cta { color: var(--neon-cyan); border: 1px solid rgba(0, 229, 255, 0.15); }
+.product-card__cat-badge--stream { color: var(--neon-purple); border: 1px solid rgba(180, 77, 255, 0.15); }
+.product-card__body {
+  padding: 16px 18px 20px;
+  flex: 1; display: flex; flex-direction: column;
+}
+.product-card__number {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px; font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1px;
+  margin-bottom: 6px; opacity: 0.6;
+}
+.product-card__name {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 15px; font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+.product-card__desc {
+  font-size: 13px; color: var(--text-body);
+  line-height: 1.5; font-weight: 300; flex: 1;
+}
+.product-card__link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 12px; font-weight: 600;
+  color: var(--neon-pink);
+  margin-top: 14px;
+  transition: gap 0.2s;
+}
+.product-card:hover .product-card__link { gap: 10px; }
+.product-card__link svg {
+  width: 14px; height: 14px;
+  stroke: currentColor; fill: none;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* Coming soon card */
+.product-card--soon {
+  border-style: dashed;
+  border-color: rgba(255, 255, 255, 0.06);
+}
+.product-card--soon:hover {
+  border-color: rgba(180, 77, 255, 0.2);
+  border-style: solid;
+  transform: none;
+  box-shadow: none;
+}
+.product-card--soon .product-card__img-wrap {
+  background: linear-gradient(135deg, rgba(180, 77, 255, 0.04), rgba(0, 229, 255, 0.02));
+  aspect-ratio: 4 / 3;
+  display: flex; align-items: center; justify-content: center;
+}
+.soon-placeholder {
+  text-align: center; padding: 24px;
+}
+.soon-placeholder__icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: rgba(180, 77, 255, 0.08);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 12px;
+}
+.soon-placeholder__icon svg {
+  width: 22px; height: 22px;
+  fill: none; stroke: var(--neon-purple);
+  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+}
+.soon-placeholder__text {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px; font-weight: 700;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.product-card--soon .product-card__number { color: var(--neon-purple); }
+.product-card--soon .product-card__link { color: var(--neon-purple); }
+
+/* Empty state message */
+.products-empty {
+  display: none;
+  text-align: center;
+  padding: 80px 24px;
+  grid-column: 1 / -1;
+}
+.products-empty.show { display: block; }
+.products-empty__text {
+  font-size: 15px; color: var(--text-dim);
+}
+
+/* Footer */
+.footer { position: relative; z-index: 1; border-top: 1px solid var(--border-subtle); padding: 48px 0 32px; }
+.footer__top { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start; margin-bottom: 40px; }
+.footer__logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; text-decoration: none; }
+.footer__logo-avatar { width: 28px; height: 28px; border-radius: 50%; }
+.footer__logo-text { height: 16px; width: auto; opacity: 0.7; }
+.footer__tagline { font-size: 13px; color: var(--text-dim); line-height: 1.6; max-width: 320px; font-weight: 300; }
+.footer__links { display: flex; gap: 32px; }
+.footer__col-title { font-family: 'TASA Orbiter', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: -0.01em; color: var(--text-dim); margin-bottom: 14px; }
+.footer__col a { display: block; font-size: 13px; color: var(--text-body); text-decoration: none; padding: 4px 0; transition: color 0.2s; font-weight: 400; }
+.footer__col a:hover { color: var(--text-primary); }
+.footer__bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.04); }
+.footer__copy { font-size: 12px; color: var(--text-dim); font-weight: 300; }
+.footer__copy a { color: var(--text-dim); text-decoration: none; }
+.footer__copy a:hover { color: var(--text-body); }
+.footer__humans { font-size: 12px; color: var(--text-dim); font-weight: 400; }
+
+/* Reveals */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.stagger-item { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.stagger-item.visible { opacity: 1; transform: translateY(0); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .deco-icons { display: none; }
+  .nav__links { display: none; } .nav__hamburger { display: flex; } .nav { padding: 8px 1rem 0; }
+  .nav.menu-open .nav__bar { border-radius: 14px 14px 0 0; border-bottom-color: transparent; }
+  .nav__mobile-menu.open { display: flex; flex-direction: column; gap: 16px; background: rgba(14, 16, 36, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--border-subtle); border-top: none; border-radius: 0 0 14px 14px; padding: 20px 24px; margin-top: -1px; }
+  .nav__mobile-menu a { font-size: 14px; color: var(--text-body); text-decoration: none; padding: 8px 0; transition: color 0.2s; }
+  .nav__mobile-menu a:hover { color: var(--text-primary); }
+  .hero { padding: 80px 0 32px; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .footer__top { grid-template-columns: 1fr; gap: 32px; } .footer__links { gap: 24px; }
+  .footer__bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+@media (max-width: 480px) {
+  .products-grid { grid-template-columns: 1fr; }
+  .footer__links { flex-direction: column; gap: 20px; }
+}
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow--cyan"></div>
+<div class="bg-glow bg-glow--pink"></div>
+
+<div class="deco-icons" id="decoIcons">
+  <div class="deco-icon deco-icon--yt" data-deco="youtube-ctas">
+    <img src="/assets/images/brand/youtube.png" alt="">
+  </div>
+  <div class="deco-icon deco-icon--twitch" data-deco="live-streaming">
+    <img src="/assets/images/brand/twitch.png" alt="">
+  </div>
+  <div class="deco-icon deco-icon--kick" data-deco="live-streaming">
+    <img src="/assets/images/brand/kick.png" alt="">
+  </div>
+</div>
+
+<nav class="nav" id="nav">
+  <div class="nav__bar">
+    <a href="/" class="nav__logo">
+      <img src="/assets/images/logo/avatar.png" alt="The Crazy Graphic Guy" class="nav__logo-avatar" width="36" height="36">
+      <img src="/assets/images/logo/logo-text.png" alt="TCGG" class="nav__logo-text" height="20">
+    </a>
+    <ul class="nav__links">
+      <li><a href="/products" class="nav__link nav__link--active">YouTube Assets</a></li>
+      <li><a href="/about" class="nav__link">Who is TCGG</a></li>
+      <li><a href="/contact" class="nav__link">Contact & Help</a></li>
+      <li><a href="/wall-of-love" class="nav__link">Wall of Creators</a></li>
+      <li><a href="https://tools.thecrazygraphicguy.com/channel-score/" class="nav__cta">Score My Channel</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav__mobile-menu" id="mobileMenu">
+    <a href="/products" style="color: var(--accent);">YouTube Assets</a>
+    <a href="/about">Who is TCGG</a>
+    <a href="/contact">Contact & Help</a>
+    <a href="/wall-of-love">Wall of Creators</a>
+    <a href="https://tools.thecrazygraphicguy.com/channel-score/" style="color: var(--accent);">Score My Channel</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__badge reveal">
+      <span class="hero__badge-dot"></span>
+      Shop
+    </div>
+    <h1 class="hero__title reveal"><span class="hero__title-accent">All Products</span></h1>
+    <p class="hero__sub reveal">Motion assets for creators who edit their own videos. Pick your style, drop it in, look pro.</p>
+  </div>
+</section>
+
+<!-- Filter tabs -->
+<div class="filter-tabs">
+  <div class="container">
+    <div class="filter-tabs__inner reveal">
+      <button class="filter-tab active" data-filter="all">All<span class="filter-tab__count">12</span></button>
+      <button class="filter-tab" data-filter="youtube-ctas"><img src="/assets/images/brand/youtube.png" alt="" class="filter-tab__icon">YouTube CTAs<span class="filter-tab__count">9</span></button>
+      <button class="filter-tab" data-filter="live-streaming"><img src="/assets/images/brand/twitch.png" alt="" class="filter-tab__icon"><img src="/assets/images/brand/kick.png" alt="" class="filter-tab__icon" style="margin-left:-4px">Live Streaming<span class="filter-tab__count">3</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- Products -->
+<section class="products-section">
+  <div class="container">
+    <div class="products-grid" id="productsGrid">
+
+      <!-- YouTube CTAs -->
+      <a href="/products/cta-001" class="product-card stagger-item" data-cat="youtube-ctas">
+        <div class="product-card__img-wrap">
+          <img src="/assets/images/products/cta-001.jpg" alt="CTA 001" class="product-card__img" loading="lazy">
+          <span class="product-card__price">$14</span>
+          <span class="product-card__cat-badge product-card__cat-badge--cta">CTA</span>
+        </div>
+        <div class="product-card__body">
+          <span class="product-card__number">CTA 001</span>
+          <div class="product-card__name">The bold one</div>
+          <div class="product-card__desc">Bold. Loud. Impossible to scroll past. Your audience will actually hit subscribe.</div>
+          <span class="product-card__link">View product <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <a href="/products/cta-002" class="product-card stagger-item" data-cat="youtube-ctas">
+        <div class="product-card__img-wrap">
+          <img src="/assets/images/products/cta-002.jpg" alt="CTA 002" class="product-card__img" loading="lazy">
+          <span class="product-card__price">$14</span>
+          <span class="product-card__cat-badge product-card__cat-badge--cta">CTA</span>
+        </div>
+        <div class="product-card__body">
+          <span class="product-card__number">CTA 002</span>
+          <div class="product-card__name">Good vibes</div>
+          <div class="product-card__desc">Perfect for lifestyle, vlogs, and feel-good channels.</div>
+          <span class="product-card__link">View product <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <a href="/products/cta-003" class="product-card stagger-item" data-cat="youtube-ctas">
+        <div class="product-card__img-wrap">
+          <img src="/assets/images/products/cta-003.jpg" alt="CTA 003" class="product-card__img" loading="lazy">
+          <span class="product-card__price">$14</span>
+          <span class="product-card__cat-badge product-card__cat-badge--cta">CTA</span>
+        </div>
+        <div class="product-card__body">
+          <span class="product-card__number">CTA 003</span>
+          <div class="product-card__name">Universal fit</div>
+          <div class="product-card__desc">Clean. Works in any niche — tech, finance, education.</div>
+          <span class="product-card__link">View product <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <a href="/products/cta-004" class="product-card stagger-item" data-cat="youtube-ctas">
+        <div class="product-card__img-wrap">
+          <img src="/assets/images/products/cta-004.jpg" alt="CTA 004" class="product-card__img" loading="lazy">
+          <span class="product-card__price">$14</span>
+          <span class="product-card__cat-badge product-card__cat-badge--cta">CTA</span>
+        </div>
+        <div class="product-card__body">
+          <span class="product-card__number">CTA 004</span>
+          <div class="product-card__name">Gold standard</div>
+          <div class="product-card__desc">Made for channels that want to look premium without the premium budget.</div>
+          <span class="product-card__link">View product <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <a href="/products/cta-005" class="product-card stagger-item" data-cat="youtube-ctas">
+        <div class="product-card__img-wrap">
+          <img src="/assets/images/products/cta-005.jpg" alt="CTA 005" class="product-card__img" loading="lazy">
+          <span class="product-card__price">$14</span>
+          <span class="product-card__cat-badge product-card__cat-badge--cta">CTA</span>
+        </div>
+        <div class="product-card__body">
+          <span class="product-card__number">CTA 005</span>
+          <div class="product-card__name">Heavy hitter</div>
+          <div class="product-card__desc">Heavy-duty energy. For creators who want their CTA to hit hard.</div>
+          <span class="product-card__link">View product <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <a href="/products/cta-006" class="product-card stagger-item" data-cat="youtube-ctas">
+        <div class="product-card__img-wrap">
+          <img src="/assets/images/products/cta-006.jpg" alt="CTA 006" class="product-card__img" loading="lazy">
+          <span class="product-card__price">$14</span>
+          <span class="product-card__cat-badge product-card__cat-badge--cta">CTA</span>
+        </div>
+        <div class="product-card__body">
+          <span class="product-card__number">CTA 006</span>
+          <div class="product-card__name">Color pop</div>
+          <div class="product-card__desc">Fresh color combo that pops on any video background.</div>
+          <span class="product-card__link">View product <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <a href="/products/cta-007" class="product-card stagger-item" data-cat="youtube-ctas">
+        <div class="product-card__img-wrap">
+          <img src="/assets/images/products/cta-007.jpg" alt="CTA 007" class="product-card__img" loading="lazy">
+          <span class="product-card__price">$14</span>
+          <span class="product-card__cat-badge product-card__cat-badge--cta">CTA</span>
+        </div>
+        <div class="product-card__body">
+          <span class="product-card__number">CTA 007</span>
+          <div class="product-card__name">Zero cringe</div>
+          <div class="product-card__desc">Fun, fresh, and zero cringe. Ideal for creators who don't take themselves too seriously.</div>
+          <span class="product-card__link">View product <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <a href="/products/cta-008" class="product-card stagger-item" data-cat="youtube-ctas">
+        <div class="product-card__img-wrap">
+          <img src="/assets/images/products/cta-008.jpg" alt="CTA 008" class="product-card__img" loading="lazy">
+          <span class="product-card__price">$14</span>
+          <span class="product-card__cat-badge product-card__cat-badge--cta">CTA</span>
+        </div>
+        <div class="product-card__body">
+          <span class="product-card__number">CTA 008</span>
+          <div class="product-card__name">Million-sub energy</div>
+          <div class="product-card__desc">Layered and detailed. Feels like it belongs on a 1M sub channel.</div>
+          <span class="product-card__link">View product <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <a href="/products/cta-009" class="product-card stagger-item" data-cat="youtube-ctas">
+        <div class="product-card__img-wrap">
+          <img src="/assets/images/products/cta-009.jpg" alt="CTA 009" class="product-card__img" loading="lazy">
+          <span class="product-card__price">$14</span>
+          <span class="product-card__cat-badge product-card__cat-badge--cta">CTA</span>
+        </div>
+        <div class="product-card__body">
+          <span class="product-card__number">CTA 009</span>
+          <div class="product-card__name">The weird one</div>
+          <div class="product-card__desc">Weird in the best way. Makes viewers stop scrolling and pay attention.</div>
+          <span class="product-card__link">View product <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Live Streaming — Coming Soon -->
+      <div class="product-card product-card--soon stagger-item" data-cat="live-streaming">
+        <div class="product-card__img-wrap">
+          <div class="soon-placeholder">
+            <div class="soon-placeholder__icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
+            </div>
+            <div class="soon-placeholder__text">Coming soon</div>
+          </div>
+        </div>
+        <div class="product-card__body">
+          <span class="product-card__number">OVERLAY</span>
+          <div class="product-card__name">Stream overlay pack</div>
+          <div class="product-card__desc">Full overlay package for Twitch and YouTube live. Webcam frames, alerts, panels, and more.</div>
+          <span class="product-card__link">Notify me <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </div>
+
+      <div class="product-card product-card--soon stagger-item" data-cat="live-streaming">
+        <div class="product-card__img-wrap">
+          <div class="soon-placeholder">
+            <div class="soon-placeholder__icon">
+              <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <div class="soon-placeholder__text">Coming soon</div>
+          </div>
+        </div>
+        <div class="product-card__body">
+          <span class="product-card__number">STINGER</span>
+          <div class="product-card__name">Stinger transition pack</div>
+          <div class="product-card__desc">Scene transition animations for OBS and Streamlabs. Clean cuts that make your stream look pro.</div>
+          <span class="product-card__link">Notify me <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </div>
+
+      <div class="product-card product-card--soon stagger-item" data-cat="live-streaming">
+        <div class="product-card__img-wrap">
+          <div class="soon-placeholder">
+            <div class="soon-placeholder__icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+            </div>
+            <div class="soon-placeholder__text">Coming soon</div>
+          </div>
+        </div>
+        <div class="product-card__body">
+          <span class="product-card__number">STREAM</span>
+          <div class="product-card__name">More coming</div>
+          <div class="product-card__desc">More live streaming assets are on the way. Follow me to get notified when they drop.</div>
+          <span class="product-card__link">Follow for updates <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">
+          <img src="/assets/images/logo/avatar.png" alt="TCGG" class="footer__logo-avatar" width="28" height="28">
+          <img src="/assets/images/logo/logo-text.png" alt="The Crazy Graphic Guy" class="footer__logo-text" height="16">
+        </a>
+        <div class="footer__tagline">YouTube animations to level-up your edits. Built for cool creators who edit their own videos.</div>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <div class="footer__col-title">Shop</div>
+          <a href="/products">YouTube CTAs</a>
+          <a href="/products">Stream Overlays</a>
+          <a href="/products">Stinger Transitions</a>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Company</div>
+          <a href="/about">Who is TCGG</a>
+          <a href="/wall-of-love">Wall of Creators</a>
+          <a href="/contact">Contact & Help</a>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Tools</div>
+          <a href="https://tools.thecrazygraphicguy.com/channel-score/">Channel Score</a>
+          <a href="/faqs">FAQs</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copy">&copy; 2026 The Crazy Graphic Guy. All rights reserved. <a href="/terms-of-service">Terms</a> &middot; <a href="/refund-policy">Refunds</a></div>
+      <div class="footer__humans">Made by humans for humans</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+document.getElementById('hamburger').addEventListener('click', function() {
+  var menu = document.getElementById('mobileMenu');
+  var nav = document.getElementById('nav');
+  menu.classList.toggle('open');
+  nav.classList.toggle('menu-open');
+  var spans = this.querySelectorAll('span');
+  if (menu.classList.contains('open')) {
+    spans[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
+  } else {
+    spans[0].style.transform = 'none';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'none';
+  }
+});
+
+/* Filter */
+var tabs = document.querySelectorAll('.filter-tab');
+var cards = document.querySelectorAll('.product-card');
+var decos = document.querySelectorAll('.deco-icon');
+
+tabs.forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    var filter = this.dataset.filter;
+    tabs.forEach(function(t) { t.classList.remove('active'); });
+    this.classList.add('active');
+
+    cards.forEach(function(card) {
+      if (filter === 'all' || card.dataset.cat === filter) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    decos.forEach(function(deco) {
+      deco.classList.remove('highlight', 'dim');
+      if (filter === 'all') return;
+      if (deco.dataset.deco === filter) {
+        deco.classList.add('highlight');
+      } else {
+        deco.classList.add('dim');
+      }
+    });
+  });
+});
+
+/* Reveal */
+var revealObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      var staggerItems = entry.target.querySelectorAll('.stagger-item');
+      staggerItems.forEach(function(item, i) {
+        setTimeout(function() { item.classList.add('visible'); }, i * 80);
+      });
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.05 });
+document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
+
+/* Initial stagger for grid */
+var gridObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      var items = entry.target.querySelectorAll('.stagger-item');
+      items.forEach(function(item, i) {
+        setTimeout(function() { item.classList.add('visible'); }, i * 80);
+      });
+      gridObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.05 });
+gridObserver.observe(document.getElementById('productsGrid'));
+</script>
+</body>
+</html>

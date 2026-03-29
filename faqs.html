@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — The Crazy Graphic Guy</title>
+<meta name="description" content="Got questions about TCGG assets? Find answers about compatibility, licensing, payments, downloads and more.">
+<meta property="og:title" content="FAQ — The Crazy Graphic Guy">
+<meta property="og:description" content="Got questions? I got answers. Everything you need to know about TCGG assets.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thecrazygraphicguy.com/faqs">
+<link rel="canonical" href="https://thecrazygraphicguy.com/faqs">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;300;400;500&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'TASA Orbiter';
+  src: url('/assets/fonts/TASAOrbiter-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-deep: #07080f;
+  --bg-card: rgba(14, 16, 36, 0.85);
+  --bg-card-solid: #0e1024;
+  --bg-elevated: #172528;
+  --accent: #00e5ff;
+  --accent-dim: rgba(0, 229, 255, 0.15);
+  --accent-glow: rgba(0, 229, 255, 0.3);
+  --neon-cyan: #00e5ff;
+  --neon-pink: #ff2d6b;
+  --neon-green: #00ff88;
+  --neon-amber: #ffa726;
+  --neon-purple: #b44dff;
+  --text-primary: #e8e8f0;
+  --text-body: #999999;
+  --text-dim: #5a5a5a;
+  --border-subtle: rgba(0, 229, 255, 0.1);
+  --border-glow: rgba(0, 229, 255, 0.3);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --container: 1140px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  background: var(--bg-deep);
+  color: var(--text-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Background */
+.bg-grid {
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none; z-index: 0;
+}
+.bg-glow {
+  position: fixed;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  filter: blur(160px);
+  pointer-events: none; z-index: 0;
+}
+.bg-glow--cyan { background: var(--accent); top: -200px; right: -200px; opacity: 0.10; }
+.bg-glow--pink { background: var(--neon-pink); bottom: -300px; left: -200px; opacity: 0.05; }
+
+/* Nav */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  padding: 12px 1.5rem 0;
+  max-width: var(--container); margin: 0 auto;
+}
+.nav__bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px; height: 56px;
+  background: rgba(14, 16, 36, 0.85);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle); border-radius: 14px;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.nav.scrolled .nav__bar {
+  box-shadow: 0 4px 30px rgba(0, 229, 255, 0.06);
+  border-color: var(--border-glow);
+}
+.nav__mobile-menu { display: none; }
+.nav__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav__logo-avatar { width: 36px; height: 36px; border-radius: 50%; }
+.nav__logo-text { height: 20px; width: auto; opacity: 0.9; }
+.nav__links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav__link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 400;
+  color: var(--text-body); text-decoration: none;
+  transition: color 0.2s; letter-spacing: -0.01em;
+}
+.nav__link:hover { color: var(--text-primary); }
+.nav__link--active { color: var(--accent); }
+.nav__cta {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 12px; font-weight: 600; letter-spacing: -0.01em;
+  color: var(--bg-deep); background: var(--accent);
+  padding: 8px 18px; border-radius: 100px; text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+}
+.nav__cta:hover { transform: translateY(-1px); box-shadow: 0 0 35px rgba(0, 229, 255, 0.3); }
+.nav__cta:active { transform: translateY(0); }
+.nav__hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.nav__hamburger span {
+  width: 22px; height: 1.5px;
+  background: var(--text-body); border-radius: 2px; transition: all 0.3s;
+}
+
+/* Hero */
+.hero {
+  position: relative; z-index: 1;
+  padding: 100px 0 40px;
+  text-align: center;
+}
+.hero__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800; color: var(--text-primary);
+  line-height: 1.1; letter-spacing: -0.03em;
+  margin-bottom: 8px;
+}
+.hero__title-accent {
+  background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero__sub {
+  font-size: 16px; font-weight: 300;
+  color: var(--text-body);
+  max-width: 480px; margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* Category pills */
+.cat-nav {
+  position: relative; z-index: 2;
+  padding: 0 0 60px;
+}
+.cat-nav__inner {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.cat-nav__pill {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 500;
+  color: var(--text-body);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 10px 20px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+}
+.cat-nav__pill:hover {
+  color: var(--text-primary);
+  border-color: var(--border-glow);
+}
+.cat-nav__pill.active {
+  color: var(--accent);
+  border-color: rgba(0, 229, 255, 0.3);
+  background: rgba(0, 229, 255, 0.06);
+}
+
+/* FAQ sections */
+.faq-section {
+  position: relative; z-index: 1;
+  padding: 0 0 64px;
+}
+.faq-section__header {
+  margin-bottom: 24px;
+  padding-top: 20px;
+}
+.faq-section__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 800; color: var(--text-primary);
+  letter-spacing: -0.03em;
+}
+.faq-list {
+  max-width: 800px;
+  display: flex; flex-direction: column;
+  gap: 8px;
+}
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+.faq-item:hover { border-color: rgba(0, 229, 255, 0.2); }
+.faq-item.open { border-color: rgba(0, 229, 255, 0.2); }
+.faq-trigger {
+  width: 100%;
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 16px;
+  padding: 20px 24px;
+  background: none; border: none; cursor: pointer;
+  text-align: left;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; font-weight: 500;
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+}
+.faq-trigger:hover { color: var(--accent); }
+.faq-trigger__icon {
+  flex-shrink: 0;
+  width: 24px; height: 24px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-dim);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s ease;
+}
+.faq-item.open .faq-trigger__icon { transform: rotate(45deg); color: var(--accent); }
+.faq-trigger__icon svg {
+  width: 16px; height: 16px;
+  fill: none; stroke: currentColor;
+  stroke-width: 2; stroke-linecap: round;
+}
+.faq-answer {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.faq-answer__inner {
+  padding: 0 24px 20px;
+  font-size: 14px; color: var(--text-body);
+  line-height: 1.7; font-weight: 300;
+}
+
+/* More doubts CTA */
+.doubts-cta {
+  position: relative; z-index: 1;
+  padding: 20px 0 100px;
+}
+.doubts-cta__card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 40px;
+  display: flex; align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.doubts-cta__left {
+  display: flex; align-items: center; gap: 16px;
+}
+.doubts-cta__icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: rgba(0, 229, 255, 0.08);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.doubts-cta__icon svg {
+  width: 22px; height: 22px;
+  fill: none; stroke: var(--accent);
+  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+}
+.doubts-cta__text {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 18px; font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+.doubts-cta__btn {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 14px; font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--bg-deep); background: var(--accent);
+  padding: 14px 28px; border-radius: var(--radius);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
+  white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.doubts-cta__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 50px rgba(0, 229, 255, 0.35);
+}
+.doubts-cta__btn:active { transform: translateY(0); }
+.doubts-cta__btn svg {
+  width: 14px; height: 14px;
+  fill: none; stroke: currentColor;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* Footer */
+.footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid var(--border-subtle);
+  padding: 48px 0 32px;
+}
+.footer__top {
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 40px; align-items: start; margin-bottom: 40px;
+}
+.footer__logo {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 14px; text-decoration: none;
+}
+.footer__logo-avatar { width: 28px; height: 28px; border-radius: 50%; }
+.footer__logo-text { height: 16px; width: auto; opacity: 0.7; }
+.footer__tagline {
+  font-size: 13px; color: var(--text-dim);
+  line-height: 1.6; max-width: 320px; font-weight: 300;
+}
+.footer__links { display: flex; gap: 32px; }
+.footer__col-title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: -0.01em;
+  color: var(--text-dim); margin-bottom: 14px;
+}
+.footer__col a {
+  display: block; font-size: 13px;
+  color: var(--text-body); text-decoration: none;
+  padding: 4px 0; transition: color 0.2s; font-weight: 400;
+}
+.footer__col a:hover { color: var(--text-primary); }
+.footer__bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+.footer__copy { font-size: 12px; color: var(--text-dim); font-weight: 300; }
+.footer__copy a { color: var(--text-dim); text-decoration: none; }
+.footer__copy a:hover { color: var(--text-body); }
+.footer__humans { font-size: 12px; color: var(--text-dim); font-weight: 400; }
+
+/* Reveals */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav__links { display: none; }
+  .nav__hamburger { display: flex; }
+  .nav { padding: 8px 1rem 0; }
+  .nav.menu-open .nav__bar {
+    border-radius: 14px 14px 0 0;
+    border-bottom-color: transparent;
+  }
+  .nav__mobile-menu.open {
+    display: flex; flex-direction: column; gap: 16px;
+    background: rgba(14, 16, 36, 0.95);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle); border-top: none;
+    border-radius: 0 0 14px 14px;
+    padding: 20px 24px; margin-top: -1px;
+  }
+  .nav__mobile-menu a {
+    font-size: 14px; color: var(--text-body);
+    text-decoration: none; padding: 8px 0; transition: color 0.2s;
+  }
+  .nav__mobile-menu a:hover { color: var(--text-primary); }
+  .hero { padding: 80px 0 32px; }
+  .cat-nav__inner { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; gap: 6px; padding-bottom: 4px; }
+  .cat-nav__pill { white-space: nowrap; flex-shrink: 0; }
+  .doubts-cta__card {
+    flex-direction: column; text-align: center;
+    padding: 32px 24px;
+  }
+  .doubts-cta__left { flex-direction: column; }
+  .footer__top { grid-template-columns: 1fr; gap: 32px; }
+  .footer__links { gap: 24px; }
+  .footer__bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+@media (max-width: 480px) {
+  .footer__links { flex-direction: column; gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow--cyan"></div>
+<div class="bg-glow bg-glow--pink"></div>
+
+<nav class="nav" id="nav">
+  <div class="nav__bar">
+    <a href="/" class="nav__logo">
+      <img src="/assets/images/logo/avatar.png" alt="The Crazy Graphic Guy" class="nav__logo-avatar" width="36" height="36">
+      <img src="/assets/images/logo/logo-text.png" alt="TCGG" class="nav__logo-text" height="20">
+    </a>
+    <ul class="nav__links">
+      <li><a href="/products" class="nav__link">YouTube Assets</a></li>
+      <li><a href="/about" class="nav__link">Who is TCGG</a></li>
+      <li><a href="/contact" class="nav__link">Contact & Help</a></li>
+      <li><a href="/wall-of-love" class="nav__link">Wall of Creators</a></li>
+      <li><a href="https://tools.thecrazygraphicguy.com/channel-score/" class="nav__cta">Score My Channel</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__mobile-menu" id="mobileMenu">
+    <a href="/products">YouTube Assets</a>
+    <a href="/about">Who is TCGG</a>
+    <a href="/contact">Contact & Help</a>
+    <a href="/wall-of-love">Wall of Creators</a>
+    <a href="https://tools.thecrazygraphicguy.com/channel-score/" style="color: var(--accent);">Score My Channel</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <h1 class="hero__title reveal">Got questions?<br><span class="hero__title-accent">I got answers!</span></h1>
+  </div>
+</section>
+
+<!-- Category navigation -->
+<div class="cat-nav">
+  <div class="container">
+    <div class="cat-nav__inner">
+      <a href="#general" class="cat-nav__pill active" data-cat="general">Getting Started</a>
+      <a href="#licensing" class="cat-nav__pill" data-cat="licensing">Assets & Licensing</a>
+      <a href="#payment" class="cat-nav__pill" data-cat="payment">Payments & Checkout</a>
+      <a href="#support" class="cat-nav__pill" data-cat="support">Support & Troubleshooting</a>
+    </div>
+  </div>
+</div>
+
+<!-- Getting Started -->
+<section class="faq-section" id="general">
+  <div class="container">
+    <div class="faq-section__header reveal">
+      <h2 class="faq-section__title">Getting Started</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">How do I use these assets?<span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer__inner">Just drag and drop. No plugins, no setup — open your editor and drop the files right in. These assets are made to save you time, not waste it.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">Can I request a custom pack or animation?<span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer__inner">Yes. I do take on custom work when I've got room in my schedule. Reach out through email or DM me with your idea and I'll let you know the deal.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">Do I need any plugins?<span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer__inner">Zero plugins required. These files are optimized for speed and ease of use.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">Can I suggest a pack idea?<span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer__inner">Please do. If you're an editor and have a crazy idea for something useful, hit me up. I actually read DMs.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">How will I receive my files?<span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer__inner">Right after checkout, you'll get a download link + email. All assets come in a clean .zip file, ready to go.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">Are you planning to release more packs?<span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer__inner">Hell yes. I'm constantly creating. Follow me on Instagram to see what I'm cooking up next — and get early access when new packs drop.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">What makes your packs different from those on big marketplaces?<span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer__inner">These are handcrafted, not mass-produced. Built specifically for YouTube editors by someone who gets what works. You're not downloading filler — you're getting impact.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Assets & Licensing -->
+<section class="faq-section" id="licensing">
+  <div class="container">
+    <div class="faq-section__header reveal">
+      <h2 class="faq-section__title">Assets & Licensing</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">Can I use the assets in client projects?<span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer__inner">Absolutely. Every purchase comes with a full commercial license, so you can use the assets in any project you deliver to your clients — no copyright issues, no legal drama.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">What software do these work with?<span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer__inner">Any desktop editing software that supports .mov files with transparency — like Premiere, After Effects, Final Cut, DaVinci Resolve, and more.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">Can I use these assets in monetized content?<span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer__inner">Yes. These are made for pros. Use them in monetized YouTube videos, branded content, or client work — no limitations.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">Are the assets transparent / no background?<span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer__inner">Yep. All animations come with transparent backgrounds (.mov with alpha channel), so you can overlay them wherever you want.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">Can I use them on any type of YouTube videos?<span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer__inner">100%. These are designed specifically for all type of YouTube content. Whether you're making Shorts, long-form, or client work — these CTAs were built to convert.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">Do I get future updates?<span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer__inner">For sure. If a pack you bought gets updated, you'll get the new version in your inbox. No extra charge. You're part of the club.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">Can I edit the animations in After Effects?<span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer__inner">The nature of my assets is to save you time. They are pre-rendered for speed. Ready to drop into your timeline as-is. That's the whole point: no setup, no layers, just results.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Payments & Checkout -->
+<section class="faq-section" id="payment">
+  <div class="container">
+    <div class="faq-section__header reveal">
+      <h2 class="faq-section__title">Payments & Checkout</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">How do I pay?<span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer__inner">Checkout is powered by Lemon Squeezy — a secure and trusted platform. You can pay with card, PayPal, or whatever payment options are available in your country.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">Can I get an invoice?<span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer__inner">Yes. Lemon Squeezy automatically emails you a receipt, and you can download a full invoice right after purchase.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">Do you offer refunds?<span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer__inner">Because these are digital downloads, I don't do refunds. But if something's wrong, I'll always make it right. Just reach out.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Support & Troubleshooting -->
+<section class="faq-section" id="support">
+  <div class="container">
+    <div class="faq-section__header reveal">
+      <h2 class="faq-section__title">Support & Troubleshooting</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">What if a file doesn't work?<span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer__inner">If anything's broken or weird, DM me on Instagram or send an email at hi@thecrazygraphicguy.com with your order number and a quick note — I'll sort it out fast.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">Can I re-download my packs later?<span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-answer"><div class="faq-answer__inner">For sure. Just keep your email handy, and if you ever lose access, I'll resend it. Easy.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- More doubts CTA -->
+<section class="doubts-cta reveal">
+  <div class="container">
+    <div class="doubts-cta__card">
+      <div class="doubts-cta__left">
+        <div class="doubts-cta__icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="doubts-cta__text">More doubts?</div>
+      </div>
+      <a href="/contact" class="doubts-cta__btn">
+        Shoot me a message
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">
+          <img src="/assets/images/logo/avatar.png" alt="TCGG" class="footer__logo-avatar" width="28" height="28">
+          <img src="/assets/images/logo/logo-text.png" alt="The Crazy Graphic Guy" class="footer__logo-text" height="16">
+        </a>
+        <div class="footer__tagline">YouTube animations to level-up your edits. Built for cool creators who edit their own videos.</div>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <div class="footer__col-title">Shop</div>
+          <a href="/products">YouTube CTAs</a>
+          <a href="/products">Stream Overlays</a>
+          <a href="/products">Stinger Transitions</a>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Company</div>
+          <a href="/about">Who is TCGG</a>
+          <a href="/wall-of-love">Wall of Creators</a>
+          <a href="/contact">Contact & Help</a>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Tools</div>
+          <a href="https://tools.thecrazygraphicguy.com/channel-score/">Channel Score</a>
+          <a href="/faqs">FAQs</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copy">&copy; 2026 The Crazy Graphic Guy. All rights reserved. <a href="/terms-of-service">Terms</a> &middot; <a href="/refund-policy">Refunds</a></div>
+      <div class="footer__humans">Made by humans for humans</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+document.getElementById('hamburger').addEventListener('click', function() {
+  var menu = document.getElementById('mobileMenu');
+  var nav = document.getElementById('nav');
+  menu.classList.toggle('open');
+  nav.classList.toggle('menu-open');
+  var spans = this.querySelectorAll('span');
+  if (menu.classList.contains('open')) {
+    spans[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
+  } else {
+    spans[0].style.transform = 'none';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'none';
+  }
+});
+
+/* FAQ accordions */
+document.querySelectorAll('.faq-trigger').forEach(function(trigger) {
+  trigger.addEventListener('click', function() {
+    var item = this.closest('.faq-item');
+    var answer = item.querySelector('.faq-answer');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
+      if (openItem !== item) {
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+        openItem.querySelector('.faq-answer').style.maxHeight = '0';
+      }
+    });
+    if (isOpen) {
+      item.classList.remove('open');
+      this.setAttribute('aria-expanded', 'false');
+      answer.style.maxHeight = '0';
+    } else {
+      item.classList.add('open');
+      this.setAttribute('aria-expanded', 'true');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+
+/* Category pill active state on scroll */
+var sections = document.querySelectorAll('.faq-section');
+var pills = document.querySelectorAll('.cat-nav__pill');
+
+var sectionObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      var id = entry.target.id;
+      pills.forEach(function(pill) {
+        pill.classList.toggle('active', pill.dataset.cat === id);
+      });
+    }
+  });
+}, { threshold: 0.2, rootMargin: '-80px 0px -60% 0px' });
+
+sections.forEach(function(section) { sectionObserver.observe(section); });
+
+/* Pill click scroll */
+pills.forEach(function(pill) {
+  pill.addEventListener('click', function(e) {
+    e.preventDefault();
+    var target = document.getElementById(this.dataset.cat);
+    if (target) {
+      var offset = 100;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    }
+  });
+});
+
+/* Reveal */
+var revealObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
+</script>
+</body>
+</html>

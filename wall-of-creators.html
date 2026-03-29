@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wall of Creators — The Crazy Graphic Guy</title>
+<meta name="description" content="Creators using The Crazy Graphic Guy assets in their YouTube videos. Tag us on Instagram to get featured.">
+<meta property="og:title" content="Wall of Creators — The Crazy Graphic Guy">
+<meta property="og:description" content="Creators using TCGG assets in their YouTube videos. Tag us on Instagram to get featured.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thecrazygraphicguy.com/wall-of-love">
+<link rel="canonical" href="https://thecrazygraphicguy.com/wall-of-love">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;300;400;500&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'TASA Orbiter';
+  src: url('/assets/fonts/TASAOrbiter-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-deep: #07080f;
+  --bg-card: rgba(14, 16, 36, 0.85);
+  --bg-card-solid: #0e1024;
+  --bg-elevated: #172528;
+  --accent: #00e5ff;
+  --accent-dim: rgba(0, 229, 255, 0.15);
+  --accent-glow: rgba(0, 229, 255, 0.3);
+  --neon-cyan: #00e5ff;
+  --neon-pink: #ff2d6b;
+  --neon-green: #00ff88;
+  --neon-amber: #ffa726;
+  --neon-purple: #b44dff;
+  --text-primary: #e8e8f0;
+  --text-body: #999999;
+  --text-dim: #5a5a5a;
+  --border-subtle: rgba(0, 229, 255, 0.1);
+  --border-glow: rgba(0, 229, 255, 0.3);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --container: 1140px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  background: var(--bg-deep);
+  color: var(--text-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Background */
+.bg-grid {
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none; z-index: 0;
+}
+.bg-glow {
+  position: fixed;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  filter: blur(160px);
+  pointer-events: none; z-index: 0;
+}
+.bg-glow--cyan { background: var(--accent); top: -200px; right: -200px; opacity: 0.10; }
+.bg-glow--pink { background: var(--neon-pink); bottom: -300px; left: -200px; opacity: 0.05; }
+
+/* Nav */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  padding: 12px 1.5rem 0;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+.nav__bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px; height: 56px;
+  background: rgba(14, 16, 36, 0.85);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.nav.scrolled .nav__bar {
+  box-shadow: 0 4px 30px rgba(0, 229, 255, 0.06);
+  border-color: var(--border-glow);
+}
+.nav__mobile-menu { display: none; }
+.nav__logo {
+  display: flex; align-items: center; gap: 10px; text-decoration: none;
+}
+.nav__logo-avatar { width: 36px; height: 36px; border-radius: 50%; }
+.nav__logo-text { height: 20px; width: auto; opacity: 0.9; }
+.nav__links {
+  display: flex; align-items: center; gap: 28px; list-style: none;
+}
+.nav__link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 400;
+  color: var(--text-body); text-decoration: none;
+  transition: color 0.2s; letter-spacing: -0.01em;
+}
+.nav__link:hover { color: var(--text-primary); }
+.nav__link--active { color: var(--accent); }
+.nav__cta {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 12px; font-weight: 600; letter-spacing: -0.01em;
+  color: var(--bg-deep); background: var(--accent);
+  padding: 8px 18px; border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+}
+.nav__cta:hover { transform: translateY(-1px); box-shadow: 0 0 35px rgba(0, 229, 255, 0.3); }
+.nav__cta:active { transform: translateY(0); }
+.nav__hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.nav__hamburger span {
+  width: 22px; height: 1.5px;
+  background: var(--text-body); border-radius: 2px; transition: all 0.3s;
+}
+
+/* Hero */
+.hero {
+  position: relative; z-index: 1;
+  padding: 100px 0 60px;
+  text-align: center;
+}
+.hero__badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: -0.01em; text-transform: uppercase;
+  color: var(--neon-purple);
+  border: 1px solid rgba(180, 77, 255, 0.2);
+  padding: 6px 16px; border-radius: 100px;
+  margin-bottom: 28px;
+}
+.hero__badge-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--neon-purple);
+  animation: breathe 2s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+.hero__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800; color: var(--text-primary);
+  line-height: 1.1; letter-spacing: -0.03em;
+  max-width: 680px; margin: 0 auto 20px;
+}
+.hero__title-accent {
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero__sub {
+  font-size: 16px; font-weight: 300;
+  color: var(--text-body);
+  max-width: 500px; margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* How to get featured */
+.how-featured {
+  position: relative; z-index: 1;
+  padding: 20px 0 80px;
+}
+.how-featured__card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 48px 40px;
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  position: relative; overflow: hidden;
+}
+.how-featured__card::before {
+  content: '';
+  position: absolute; top: -60px; right: -60px;
+  width: 300px; height: 300px; border-radius: 50%;
+  background: var(--neon-purple); opacity: 0.03;
+  filter: blur(100px); pointer-events: none;
+}
+.how-featured__header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.how-featured__label {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: -0.01em;
+  color: var(--neon-purple);
+  margin-bottom: 12px;
+}
+.how-featured__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 800; color: var(--text-primary);
+  letter-spacing: -0.03em;
+}
+.how-featured__steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+}
+.how-featured__steps::before {
+  content: '';
+  position: absolute; top: 28px; left: 15%; right: 15%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(180, 77, 255, 0.15) 20%, rgba(180, 77, 255, 0.15) 80%, transparent);
+}
+.featured-step {
+  text-align: center; position: relative; z-index: 1;
+}
+.featured-step__number {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px; font-weight: 700;
+  color: var(--bg-deep);
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--neon-purple);
+  box-shadow: 0 0 24px rgba(180, 77, 255, 0.3);
+  display: inline-flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.featured-step__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 15px; font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+.featured-step__desc {
+  font-size: 13px; color: var(--text-body);
+  line-height: 1.55; font-weight: 300;
+  max-width: 220px; margin: 0 auto;
+}
+
+/* Creators grid */
+.creators {
+  position: relative; z-index: 1;
+  padding: 0 0 80px;
+}
+.creators__header {
+  margin-bottom: 40px;
+}
+.creators__label {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: -0.01em;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.creators__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 800; color: var(--text-primary);
+  letter-spacing: -0.03em;
+}
+.creators__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* Real creator card */
+.creator-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  text-decoration: none;
+  display: block;
+}
+.creator-card:hover {
+  border-color: var(--border-glow);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 229, 255, 0.08);
+}
+.creator-card__screenshot {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  display: block;
+}
+.creator-card__info {
+  padding: 16px 18px 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.creator-card__avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--border-subtle);
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.creator-card__meta {
+  min-width: 0;
+}
+.creator-card__handle {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 14px; font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.creator-card__bio {
+  font-size: 12px; color: var(--text-dim);
+  font-weight: 400;
+}
+
+/* Empty slot card */
+.slot-card {
+  border: 2px dashed rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 40px 24px;
+  min-height: 380px;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  text-decoration: none;
+  cursor: pointer;
+}
+.slot-card:hover {
+  border-color: rgba(180, 77, 255, 0.3);
+  border-style: solid;
+  background: rgba(180, 77, 255, 0.03);
+}
+.slot-card__icon {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 255, 255, 0.08);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease;
+}
+.slot-card:hover .slot-card__icon {
+  border-color: rgba(180, 77, 255, 0.3);
+}
+.slot-card__plus {
+  font-size: 24px; font-weight: 200;
+  color: var(--text-dim);
+  transition: color 0.3s ease;
+}
+.slot-card:hover .slot-card__plus {
+  color: var(--neon-purple);
+}
+.slot-card__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 16px; font-weight: 700;
+  color: var(--text-body);
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+  transition: color 0.3s ease;
+}
+.slot-card:hover .slot-card__title {
+  color: var(--text-primary);
+}
+.slot-card__desc {
+  font-size: 13px; color: var(--text-dim);
+  font-weight: 300; line-height: 1.5;
+  max-width: 180px;
+}
+
+/* CTA Banner */
+.wall-cta {
+  position: relative; z-index: 1;
+  padding: 0 0 100px;
+}
+.wall-cta__card {
+  background: var(--bg-card);
+  border: 1px solid rgba(180, 77, 255, 0.15);
+  border-radius: 20px;
+  padding: 56px 40px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.wall-cta__card::before {
+  content: '';
+  position: absolute; bottom: -80px; left: 50%;
+  transform: translateX(-50%);
+  width: 400px; height: 400px; border-radius: 50%;
+  background: var(--neon-purple); opacity: 0.04;
+  filter: blur(100px); pointer-events: none;
+}
+.wall-cta__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 800; color: var(--text-primary);
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+  position: relative;
+}
+.wall-cta__desc {
+  font-size: 15px; color: var(--text-body);
+  font-weight: 300; line-height: 1.65;
+  max-width: 460px; margin: 0 auto 32px;
+  position: relative;
+}
+.wall-cta__buttons {
+  display: flex; align-items: center; justify-content: center;
+  gap: 12px; flex-wrap: wrap;
+  position: relative;
+}
+.wall-cta__btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 14px; font-weight: 600;
+  color: var(--text-primary);
+  background: transparent;
+  padding: 14px 28px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+}
+.wall-cta__btn--x {
+  border: 1px solid rgba(0, 229, 255, 0.3);
+}
+.wall-cta__btn--x:hover {
+  border-color: rgba(0, 229, 255, 0.6);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.12);
+  transform: translateY(-2px);
+}
+.wall-cta__btn--ig {
+  border: 1px solid rgba(180, 77, 255, 0.3);
+}
+.wall-cta__btn--ig:hover {
+  border-color: rgba(180, 77, 255, 0.6);
+  box-shadow: 0 0 30px rgba(180, 77, 255, 0.12);
+  transform: translateY(-2px);
+}
+.wall-cta__btn:active { transform: translateY(0); }
+.wall-cta__btn svg {
+  width: 18px; height: 18px;
+  fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+}
+.wall-cta__btn--ig svg { stroke: var(--neon-purple); }
+.wall-cta__btn--x svg { stroke: var(--accent); fill: var(--accent); }
+
+/* Footer */
+.footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid var(--border-subtle);
+  padding: 48px 0 32px;
+}
+.footer__top {
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 40px; align-items: start; margin-bottom: 40px;
+}
+.footer__logo {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 14px; text-decoration: none;
+}
+.footer__logo-avatar { width: 28px; height: 28px; border-radius: 50%; }
+.footer__logo-text { height: 16px; width: auto; opacity: 0.7; }
+.footer__tagline {
+  font-size: 13px; color: var(--text-dim);
+  line-height: 1.6; max-width: 320px; font-weight: 300;
+}
+.footer__links { display: flex; gap: 32px; }
+.footer__col-title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: -0.01em;
+  color: var(--text-dim); margin-bottom: 14px;
+}
+.footer__col a {
+  display: block; font-size: 13px;
+  color: var(--text-body); text-decoration: none;
+  padding: 4px 0; transition: color 0.2s; font-weight: 400;
+}
+.footer__col a:hover { color: var(--text-primary); }
+.footer__bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+.footer__copy { font-size: 12px; color: var(--text-dim); font-weight: 300; }
+.footer__copy a { color: var(--text-dim); text-decoration: none; }
+.footer__copy a:hover { color: var(--text-body); }
+.footer__humans { font-size: 12px; color: var(--text-dim); font-weight: 400; }
+
+/* Reveals */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.stagger-item {
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.stagger-item.visible { opacity: 1; transform: translateY(0); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav__links { display: none; }
+  .nav__hamburger { display: flex; }
+  .nav { padding: 8px 1rem 0; }
+  .nav.menu-open .nav__bar {
+    border-radius: 14px 14px 0 0;
+    border-bottom-color: transparent;
+  }
+  .nav__mobile-menu.open {
+    display: flex; flex-direction: column; gap: 16px;
+    background: rgba(14, 16, 36, 0.95);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle); border-top: none;
+    border-radius: 0 0 14px 14px;
+    padding: 20px 24px; margin-top: -1px;
+  }
+  .nav__mobile-menu a {
+    font-size: 14px; color: var(--text-body);
+    text-decoration: none; padding: 8px 0; transition: color 0.2s;
+  }
+  .nav__mobile-menu a:hover { color: var(--text-primary); }
+
+  .hero { padding: 80px 0 40px; }
+
+  .how-featured__card { padding: 32px 24px; }
+  .how-featured__steps {
+    grid-template-columns: 1fr; gap: 24px;
+  }
+  .how-featured__steps::before { display: none; }
+
+  .creators__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .wall-cta__card { padding: 40px 24px; }
+
+  .footer__top { grid-template-columns: 1fr; gap: 32px; }
+  .footer__links { gap: 24px; }
+  .footer__bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .creators__grid { grid-template-columns: 1fr; }
+  .slot-card { min-height: 240px; }
+  .footer__links { flex-direction: column; gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow--cyan"></div>
+<div class="bg-glow bg-glow--pink"></div>
+
+<nav class="nav" id="nav">
+  <div class="nav__bar">
+    <a href="/" class="nav__logo">
+      <img src="/assets/images/logo/avatar.png" alt="The Crazy Graphic Guy" class="nav__logo-avatar" width="36" height="36">
+      <img src="/assets/images/logo/logo-text.png" alt="TCGG" class="nav__logo-text" height="20">
+    </a>
+    <ul class="nav__links">
+      <li><a href="/products" class="nav__link">YouTube Assets</a></li>
+      <li><a href="/about" class="nav__link">Who is TCGG</a></li>
+      <li><a href="/contact" class="nav__link">Contact & Help</a></li>
+      <li><a href="/wall-of-love" class="nav__link nav__link--active">Wall of Creators</a></li>
+      <li><a href="https://tools.thecrazygraphicguy.com/channel-score/" class="nav__cta">Score My Channel</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__mobile-menu" id="mobileMenu">
+    <a href="/products">YouTube Assets</a>
+    <a href="/about">Who is TCGG</a>
+    <a href="/contact">Contact & Help</a>
+    <a href="/wall-of-love" style="color: var(--accent);">Wall of Creators</a>
+    <a href="https://tools.thecrazygraphicguy.com/channel-score/" style="color: var(--accent);">Score My Channel</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__badge reveal">
+      <span class="hero__badge-dot"></span>
+      Community
+    </div>
+    <h1 class="hero__title reveal">
+      <span class="hero__title-accent">Wall of Creators</span>
+    </h1>
+    <p class="hero__sub reveal">
+      This space is just getting started. I'd love for you to help me fill it up. Show me how you use my assets on X or Instagram and I'll put you right here.
+    </p>
+  </div>
+</section>
+
+<!-- How to get featured -->
+<section class="how-featured reveal">
+  <div class="container">
+    <div class="how-featured__card">
+      <div class="how-featured__header">
+        <div class="how-featured__label">How to get featured</div>
+        <h2 class="how-featured__title">Three easy steps</h2>
+      </div>
+      <div class="how-featured__steps">
+        <div class="featured-step stagger-item">
+          <div class="featured-step__number">1</div>
+          <div class="featured-step__title">Grab a pack</div>
+          <div class="featured-step__desc">Pick any CTA pack from the shop and use it in your videos.</div>
+        </div>
+        <div class="featured-step stagger-item">
+          <div class="featured-step__number">2</div>
+          <div class="featured-step__title">Show it off</div>
+          <div class="featured-step__desc">Post on Instagram or X showcasing how you use my assets in your content.</div>
+        </div>
+        <div class="featured-step stagger-item">
+          <div class="featured-step__number">3</div>
+          <div class="featured-step__title">Tag me</div>
+          <div class="featured-step__desc">Tag @CrazyGraphicGuy on X or @thecrazygraphicguy on Instagram. I'll add you to this page.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Creators grid -->
+<section class="creators">
+  <div class="container">
+    <div class="creators__header reveal">
+      <div class="creators__label">Featured creators</div>
+      <div class="creators__title">Creators using TCGG assets</div>
+    </div>
+    <div class="creators__grid reveal">
+
+      <!-- Real creator -->
+      <a href="https://www.instagram.com/a.cool.creator/" target="_blank" rel="noopener" class="creator-card stagger-item">
+        <img src="/assets/images/community/creator-1-story.png" alt="@a.cool.creator using TCGG assets" class="creator-card__screenshot" loading="lazy">
+        <div class="creator-card__info">
+          <img src="/assets/images/community/creator-1.png" alt="@a.cool.creator" class="creator-card__avatar" width="40" height="40" loading="lazy">
+          <div class="creator-card__meta">
+            <div class="creator-card__handle">@a.cool.creator</div>
+            <div class="creator-card__bio">4+ years as YouTube creator</div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Empty slots -->
+      <a href="https://www.instagram.com/thecrazygraphicguy/" target="_blank" rel="noopener" class="slot-card stagger-item">
+        <div class="slot-card__icon"><span class="slot-card__plus">+</span></div>
+        <div class="slot-card__title">Your spot</div>
+        <div class="slot-card__desc">Tag me on X or Instagram to get featured here.</div>
+      </a>
+
+      <a href="https://www.instagram.com/thecrazygraphicguy/" target="_blank" rel="noopener" class="slot-card stagger-item">
+        <div class="slot-card__icon"><span class="slot-card__plus">+</span></div>
+        <div class="slot-card__title">Your spot</div>
+        <div class="slot-card__desc">Show off your edits and join the wall.</div>
+      </a>
+
+      <a href="https://www.instagram.com/thecrazygraphicguy/" target="_blank" rel="noopener" class="slot-card stagger-item">
+        <div class="slot-card__icon"><span class="slot-card__plus">+</span></div>
+        <div class="slot-card__title">Your spot</div>
+        <div class="slot-card__desc">This could be you. Seriously.</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="wall-cta reveal">
+  <div class="container">
+    <div class="wall-cta__card">
+      <h2 class="wall-cta__title">Want to be on this wall?</h2>
+      <p class="wall-cta__desc">
+        I see every tag and every DM. Post using my assets, tag @CrazyGraphicGuy on X or @thecrazygraphicguy on Instagram, and you're in. No application, no minimum followers — just show me your work.
+      </p>
+      <div class="wall-cta__buttons">
+        <a href="https://x.com/CrazyGraphicGuy" target="_blank" rel="noopener" class="wall-cta__btn wall-cta__btn--x">
+          <svg viewBox="0 0 24 24" stroke="none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Tag @CrazyGraphicGuy
+        </a>
+        <a href="https://www.instagram.com/thecrazygraphicguy/" target="_blank" rel="noopener" class="wall-cta__btn wall-cta__btn--ig">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          Tag @thecrazygraphicguy
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">
+          <img src="/assets/images/logo/avatar.png" alt="TCGG" class="footer__logo-avatar" width="28" height="28">
+          <img src="/assets/images/logo/logo-text.png" alt="The Crazy Graphic Guy" class="footer__logo-text" height="16">
+        </a>
+        <div class="footer__tagline">YouTube animations to level-up your edits. Built for cool creators who edit their own videos.</div>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <div class="footer__col-title">Shop</div>
+          <a href="/products">YouTube CTAs</a>
+          <a href="/products">Stream Overlays</a>
+          <a href="/products">Stinger Transitions</a>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Company</div>
+          <a href="/about">Who is TCGG</a>
+          <a href="/wall-of-love">Wall of Creators</a>
+          <a href="/contact">Contact & Help</a>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Tools</div>
+          <a href="https://tools.thecrazygraphicguy.com/channel-score/">Channel Score</a>
+          <a href="https://x.com/CrazyGraphicGuy" target="_blank" rel="noopener">X (Twitter)</a>
+          <a href="https://www.instagram.com/thecrazygraphicguy/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copy">&copy; 2026 The Crazy Graphic Guy. All rights reserved. <a href="/terms-of-service">Terms</a> &middot; <a href="/refund-policy">Refunds</a></div>
+      <div class="footer__humans">Made by humans for humans</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+document.getElementById('hamburger').addEventListener('click', function() {
+  var menu = document.getElementById('mobileMenu');
+  var nav = document.getElementById('nav');
+  menu.classList.toggle('open');
+  nav.classList.toggle('menu-open');
+  var spans = this.querySelectorAll('span');
+  if (menu.classList.contains('open')) {
+    spans[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
+  } else {
+    spans[0].style.transform = 'none';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'none';
+  }
+});
+
+var revealObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      var staggerItems = entry.target.querySelectorAll('.stagger-item');
+      staggerItems.forEach(function(item, i) {
+        setTimeout(function() { item.classList.add('visible'); }, i * 120);
+      });
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
+</script>
+</body>
+</html>

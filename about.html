@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Who is TCGG — The Crazy Graphic Guy</title>
+<meta name="description" content="Motion Grapher, 3D Design & Photographer. 20+ years of freelance experience. Making YouTube assets that should've existed by now.">
+<meta property="og:title" content="Who is TCGG — The Crazy Graphic Guy">
+<meta property="og:description" content="Motion Grapher with 20+ years of experience. Giving my services only to cool people.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thecrazygraphicguy.com/about">
+<link rel="canonical" href="https://thecrazygraphicguy.com/about">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;300;400;500&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'TASA Orbiter';
+  src: url('/assets/fonts/TASAOrbiter-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400 800;
+  font-display: swap;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg-deep: #07080f; --bg-card: rgba(14, 16, 36, 0.85); --bg-card-solid: #0e1024;
+  --bg-elevated: #172528;
+  --accent: #00e5ff; --accent-dim: rgba(0, 229, 255, 0.15); --accent-glow: rgba(0, 229, 255, 0.3);
+  --neon-cyan: #00e5ff; --neon-pink: #ff2d6b; --neon-green: #00ff88;
+  --neon-amber: #ffa726; --neon-purple: #b44dff;
+  --text-primary: #e8e8f0; --text-body: #999999; --text-dim: #5a5a5a;
+  --border-subtle: rgba(0, 229, 255, 0.1); --border-glow: rgba(0, 229, 255, 0.3);
+  --radius: 14px; --radius-sm: 8px; --container: 1140px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; font-weight: 300; background: var(--bg-deep); color: var(--text-body); min-height: 100vh; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+.container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 1.5rem; }
+
+/* Background */
+.bg-grid { position: fixed; inset: 0; background-image: linear-gradient(rgba(0, 229, 255, 0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 229, 255, 0.025) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; z-index: 0; }
+.bg-glow { position: fixed; width: 600px; height: 600px; border-radius: 50%; filter: blur(160px); pointer-events: none; z-index: 0; }
+.bg-glow--cyan { background: var(--accent); top: -200px; right: -200px; opacity: 0.10; }
+.bg-glow--pink { background: var(--neon-pink); bottom: -300px; left: -200px; opacity: 0.05; }
+
+/* Nav */
+.nav { position: sticky; top: 0; z-index: 100; padding: 12px 1.5rem 0; max-width: var(--container); margin: 0 auto; }
+.nav__bar { display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 56px; background: rgba(14, 16, 36, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--border-subtle); border-radius: 14px; transition: box-shadow 0.3s ease, border-color 0.3s ease; }
+.nav.scrolled .nav__bar { box-shadow: 0 4px 30px rgba(0, 229, 255, 0.06); border-color: var(--border-glow); }
+.nav__mobile-menu { display: none; }
+.nav__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav__logo-avatar { width: 36px; height: 36px; border-radius: 50%; }
+.nav__logo-text { height: 20px; width: auto; opacity: 0.9; }
+.nav__links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav__link { font-size: 13px; font-weight: 400; color: var(--text-body); text-decoration: none; transition: color 0.2s; letter-spacing: -0.01em; }
+.nav__link:hover { color: var(--text-primary); }
+.nav__link--active { color: var(--accent); }
+.nav__cta { font-family: 'TASA Orbiter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: -0.01em; color: var(--bg-deep); background: var(--accent); padding: 8px 18px; border-radius: 100px; text-decoration: none; transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1); box-shadow: 0 0 20px rgba(0, 229, 255, 0.15); }
+.nav__cta:hover { transform: translateY(-1px); box-shadow: 0 0 35px rgba(0, 229, 255, 0.3); }
+.nav__cta:active { transform: translateY(0); }
+.nav__hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.nav__hamburger span { width: 22px; height: 1.5px; background: var(--text-body); border-radius: 2px; transition: all 0.3s; }
+
+/* Hero */
+.about-hero {
+  position: relative; z-index: 1;
+  padding: 100px 0 60px;
+}
+.about-hero__inner {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.about-hero__avatar {
+  width: 180px; height: 360px;
+  border-radius: 100px;
+  object-fit: cover;
+  border: 2px solid var(--border-subtle);
+}
+.about-hero__content {}
+.about-hero__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 800; color: var(--text-primary);
+  line-height: 1.2; letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+.about-hero__bio {
+  font-size: 17px; color: var(--text-body);
+  line-height: 1.7; font-weight: 300;
+  max-width: 480px;
+}
+.about-hero__bio-line {
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Tabs */
+.about-tabs {
+  position: relative; z-index: 1;
+  padding: 0 0 20px;
+}
+.about-tabs__nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 48px;
+}
+.about-tabs__pill {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  color: var(--text-body);
+  background: none;
+  border: 1px solid var(--border-subtle);
+  padding: 10px 24px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.about-tabs__pill:hover {
+  color: var(--text-primary);
+  border-color: var(--border-glow);
+}
+.about-tabs__pill.active {
+  color: var(--bg-deep);
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+}
+
+/* Tab panels */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* Work Experience */
+.experience {
+  padding: 0 0 80px;
+}
+.exp-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.exp-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  transition: border-color 0.3s ease;
+}
+.exp-card:hover {
+  border-color: rgba(0, 229, 255, 0.2);
+}
+.exp-card__content {
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.exp-card__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 20px; font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+.exp-card__desc {
+  font-size: 14px; color: var(--text-body);
+  line-height: 1.65; font-weight: 300;
+}
+.exp-card__years {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px; font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  margin-bottom: 14px;
+  opacity: 0.7;
+}
+.exp-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 240px;
+}
+
+/* Services */
+.services {
+  padding: 0 0 80px;
+}
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 800px;
+}
+.service-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.service-row:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+.service-row__left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.service-row__number {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px; font-weight: 700;
+  color: var(--text-dim);
+  width: 32px; flex-shrink: 0;
+}
+.service-row__name {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 16px; font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+.service-row__price {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px; font-weight: 700;
+  color: var(--accent);
+  background: rgba(0, 229, 255, 0.06);
+  border: 1px solid rgba(0, 229, 255, 0.15);
+  padding: 6px 16px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.services-cta {
+  margin-top: 40px;
+  text-align: center;
+}
+.services-cta__btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 15px; font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--bg-deep); background: var(--accent);
+  padding: 16px 36px; border-radius: var(--radius);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
+}
+.services-cta__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 50px rgba(0, 229, 255, 0.35);
+}
+.services-cta__btn:active { transform: translateY(0); }
+.services-cta__btn svg {
+  width: 16px; height: 16px;
+  fill: none; stroke: currentColor;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* Footer */
+.footer { position: relative; z-index: 1; border-top: 1px solid var(--border-subtle); padding: 48px 0 32px; }
+.footer__top { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start; margin-bottom: 40px; }
+.footer__logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; text-decoration: none; }
+.footer__logo-avatar { width: 28px; height: 28px; border-radius: 50%; }
+.footer__logo-text { height: 16px; width: auto; opacity: 0.7; }
+.footer__tagline { font-size: 13px; color: var(--text-dim); line-height: 1.6; max-width: 320px; font-weight: 300; }
+.footer__links { display: flex; gap: 32px; }
+.footer__col-title { font-family: 'TASA Orbiter', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: -0.01em; color: var(--text-dim); margin-bottom: 14px; }
+.footer__col a { display: block; font-size: 13px; color: var(--text-body); text-decoration: none; padding: 4px 0; transition: color 0.2s; font-weight: 400; }
+.footer__col a:hover { color: var(--text-primary); }
+.footer__bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.04); }
+.footer__copy { font-size: 12px; color: var(--text-dim); font-weight: 300; }
+.footer__copy a { color: var(--text-dim); text-decoration: none; }
+.footer__copy a:hover { color: var(--text-body); }
+.footer__humans { font-size: 12px; color: var(--text-dim); font-weight: 400; }
+
+/* Reveals */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.stagger-item { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.stagger-item.visible { opacity: 1; transform: translateY(0); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav__links { display: none; } .nav__hamburger { display: flex; } .nav { padding: 8px 1rem 0; }
+  .nav.menu-open .nav__bar { border-radius: 14px 14px 0 0; border-bottom-color: transparent; }
+  .nav__mobile-menu.open { display: flex; flex-direction: column; gap: 16px; background: rgba(14, 16, 36, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--border-subtle); border-top: none; border-radius: 0 0 14px 14px; padding: 20px 24px; margin-top: -1px; }
+  .nav__mobile-menu a { font-size: 14px; color: var(--text-body); text-decoration: none; padding: 8px 0; transition: color 0.2s; }
+  .nav__mobile-menu a:hover { color: var(--text-primary); }
+
+  .about-hero { padding: 80px 0 40px; }
+  .about-hero__inner { grid-template-columns: 1fr; text-align: center; gap: 28px; }
+  .about-hero__avatar { width: 140px; height: 280px; margin: 0 auto; }
+  .about-hero__bio { max-width: 100%; margin: 0 auto; }
+
+  .about-tabs__nav { justify-content: center; }
+
+  .exp-card { grid-template-columns: 1fr; }
+  .exp-card__content { padding: 28px 24px; }
+  .exp-card__img { min-height: 200px; aspect-ratio: 16 / 9; }
+
+  .service-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .service-row__left { gap: 12px; }
+
+  .footer__top { grid-template-columns: 1fr; gap: 32px; }
+  .footer__links { gap: 24px; }
+  .footer__bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+@media (max-width: 480px) {
+  .about-tabs__nav { flex-wrap: wrap; justify-content: center; }
+  .footer__links { flex-direction: column; gap: 20px; }
+}
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow--cyan"></div>
+<div class="bg-glow bg-glow--pink"></div>
+
+<nav class="nav" id="nav">
+  <div class="nav__bar">
+    <a href="/" class="nav__logo">
+      <img src="/assets/images/logo/avatar.png" alt="The Crazy Graphic Guy" class="nav__logo-avatar" width="36" height="36">
+      <img src="/assets/images/logo/logo-text.png" alt="TCGG" class="nav__logo-text" height="20">
+    </a>
+    <ul class="nav__links">
+      <li><a href="/products" class="nav__link">YouTube Assets</a></li>
+      <li><a href="/about" class="nav__link nav__link--active">Who is TCGG</a></li>
+      <li><a href="/contact" class="nav__link">Contact & Help</a></li>
+      <li><a href="/wall-of-love" class="nav__link">Wall of Creators</a></li>
+      <li><a href="https://tools.thecrazygraphicguy.com/channel-score/" class="nav__cta">Score My Channel</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="nav__mobile-menu" id="mobileMenu">
+    <a href="/products">YouTube Assets</a>
+    <a href="/about" style="color: var(--accent);">Who is TCGG</a>
+    <a href="/contact">Contact & Help</a>
+    <a href="/wall-of-love">Wall of Creators</a>
+    <a href="https://tools.thecrazygraphicguy.com/channel-score/" style="color: var(--accent);">Score My Channel</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="about-hero">
+  <div class="container">
+    <div class="about-hero__inner reveal">
+      <img src="/assets/images/about/profile.png" alt="The Crazy Graphic Guy" class="about-hero__avatar" loading="eager">
+      <div class="about-hero__content">
+        <h1 class="about-hero__title">Nobody knows who I am, but in a remote corner of the internet they say that:</h1>
+        <div class="about-hero__bio">
+          <span class="about-hero__bio-line">I'm a Motion Grapher, 3D Design & Photographer.</span>
+          <span class="about-hero__bio-line">With 20+ years of experience as freelancer.</span>
+          <span class="about-hero__bio-line">Giving my services only to cool people.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tabs -->
+<section class="about-tabs">
+  <div class="container">
+    <div class="about-tabs__nav reveal">
+      <button class="about-tabs__pill active" data-tab="experience">Work Experience</button>
+      <button class="about-tabs__pill" data-tab="services">My Current Services</button>
+    </div>
+  </div>
+</section>
+
+<!-- Work Experience -->
+<div class="tab-panel active" id="panel-experience">
+  <section class="experience">
+    <div class="container">
+      <div class="exp-grid">
+
+        <div class="exp-card reveal">
+          <div class="exp-card__content">
+            <div class="exp-card__years">5+ YEARS</div>
+            <h3 class="exp-card__title">Motion graphics & visual brand developing for Broadcasting</h3>
+            <p class="exp-card__desc">Working with television networks in the development of TV shows, both live and recorded formats.</p>
+          </div>
+          <img src="/assets/images/about/exp-broadcasting.jpg" alt="Broadcasting motion graphics work" class="exp-card__img" loading="lazy">
+        </div>
+
+        <div class="exp-card reveal">
+          <div class="exp-card__content">
+            <div class="exp-card__years">5+ YEARS</div>
+            <h3 class="exp-card__title">Visual graphic development for content creators & esports</h3>
+            <p class="exp-card__desc">Working hand in hand with digital creators to develop animated resources for their content.</p>
+          </div>
+          <img src="/assets/images/about/exp-creators.jpg" alt="Content creator graphics work" class="exp-card__img" loading="lazy">
+        </div>
+
+        <div class="exp-card reveal">
+          <div class="exp-card__content">
+            <div class="exp-card__years">8+ YEARS</div>
+            <h3 class="exp-card__title">VFX & Post for films and TV spots</h3>
+            <p class="exp-card__desc">Providing services to agencies and studios for the creation of effects in film and television ads.</p>
+          </div>
+          <img src="/assets/images/about/exp-vfx.jpg" alt="VFX and post production work" class="exp-card__img" loading="lazy">
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- My Current Services -->
+<div class="tab-panel" id="panel-services">
+  <section class="services">
+    <div class="container">
+      <div class="services-list reveal">
+
+        <div class="service-row">
+          <div class="service-row__left">
+            <span class="service-row__number">01.</span>
+            <span class="service-row__name">Development of a CTAs package (for 1 client)</span>
+          </div>
+          <span class="service-row__price">Starts from $300</span>
+        </div>
+
+        <div class="service-row">
+          <div class="service-row__left">
+            <span class="service-row__number">02.</span>
+            <span class="service-row__name">Development of a CTAs bundle (for 2 clients or more)</span>
+          </div>
+          <span class="service-row__price">Starts from $600</span>
+        </div>
+
+        <div class="service-row">
+          <div class="service-row__left">
+            <span class="service-row__number">03.</span>
+            <span class="service-row__name">Complete visual development for a channel</span>
+          </div>
+          <span class="service-row__price">DM for quote</span>
+        </div>
+
+        <div class="service-row">
+          <div class="service-row__left">
+            <span class="service-row__number">04.</span>
+            <span class="service-row__name">Other motion assets ideas</span>
+          </div>
+          <span class="service-row__price">DM for quote</span>
+        </div>
+
+      </div>
+
+      <div class="services-cta reveal">
+        <a href="/contact" class="services-cta__btn">
+          Let's talk
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">
+          <img src="/assets/images/logo/avatar.png" alt="TCGG" class="footer__logo-avatar" width="28" height="28">
+          <img src="/assets/images/logo/logo-text.png" alt="The Crazy Graphic Guy" class="footer__logo-text" height="16">
+        </a>
+        <div class="footer__tagline">YouTube animations to level-up your edits. Built for cool creators who edit their own videos.</div>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <div class="footer__col-title">Shop</div>
+          <a href="/products">YouTube CTAs</a>
+          <a href="/products">Stream Overlays</a>
+          <a href="/products">Stinger Transitions</a>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Company</div>
+          <a href="/about">Who is TCGG</a>
+          <a href="/wall-of-love">Wall of Creators</a>
+          <a href="/contact">Contact & Help</a>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Tools</div>
+          <a href="https://tools.thecrazygraphicguy.com/channel-score/">Channel Score</a>
+          <a href="/faqs">FAQs</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copy">&copy; 2026 The Crazy Graphic Guy. All rights reserved. <a href="/terms-of-service">Terms</a> &middot; <a href="/refund-policy">Refunds</a></div>
+      <div class="footer__humans">Made by humans for humans</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+document.getElementById('hamburger').addEventListener('click', function() {
+  var menu = document.getElementById('mobileMenu');
+  var nav = document.getElementById('nav');
+  menu.classList.toggle('open');
+  nav.classList.toggle('menu-open');
+  var spans = this.querySelectorAll('span');
+  if (menu.classList.contains('open')) {
+    spans[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
+  } else {
+    spans[0].style.transform = 'none';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'none';
+  }
+});
+
+/* Tab switching */
+document.querySelectorAll('.about-tabs__pill').forEach(function(pill) {
+  pill.addEventListener('click', function() {
+    var tab = this.dataset.tab;
+    document.querySelectorAll('.about-tabs__pill').forEach(function(p) { p.classList.remove('active'); });
+    this.classList.add('active');
+    document.querySelectorAll('.tab-panel').forEach(function(panel) { panel.classList.remove('active'); });
+    document.getElementById('panel-' + tab).classList.add('active');
+  });
+});
+
+/* Reveal */
+var revealObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      var staggerItems = entry.target.querySelectorAll('.stagger-item');
+      staggerItems.forEach(function(item, i) {
+        setTimeout(function() { item.classList.add('visible'); }, i * 120);
+      });
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
+</script>
+</body>
+</html>

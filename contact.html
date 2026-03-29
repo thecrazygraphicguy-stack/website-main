@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact & Help — The Crazy Graphic Guy</title>
+<meta name="description" content="Need help with your assets? Got a question? Hit me up — I respond to everything. Email, WhatsApp, Instagram or just drop a message.">
+<meta property="og:title" content="Contact & Help — The Crazy Graphic Guy">
+<meta property="og:description" content="Need help with your assets? Got a question? Hit me up — I respond to everything.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thecrazygraphicguy.com/contact">
+<link rel="canonical" href="https://thecrazygraphicguy.com/contact">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;300;400;500&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'TASA Orbiter';
+  src: url('/assets/fonts/TASAOrbiter-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-deep: #07080f;
+  --bg-card: rgba(14, 16, 36, 0.85);
+  --bg-card-solid: #0e1024;
+  --bg-elevated: #172528;
+  --accent: #00e5ff;
+  --accent-dim: rgba(0, 229, 255, 0.15);
+  --accent-glow: rgba(0, 229, 255, 0.3);
+  --neon-cyan: #00e5ff;
+  --neon-pink: #ff2d6b;
+  --neon-green: #00ff88;
+  --neon-amber: #ffa726;
+  --neon-purple: #b44dff;
+  --text-primary: #e8e8f0;
+  --text-body: #999999;
+  --text-dim: #5a5a5a;
+  --border-subtle: rgba(0, 229, 255, 0.1);
+  --border-glow: rgba(0, 229, 255, 0.3);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --container: 1140px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  background: var(--bg-deep);
+  color: var(--text-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Background effects */
+.bg-grid {
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none; z-index: 0;
+}
+.bg-glow {
+  position: fixed;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  filter: blur(160px);
+  pointer-events: none; z-index: 0;
+}
+.bg-glow--cyan { background: var(--accent); top: -200px; right: -200px; opacity: 0.10; }
+.bg-glow--pink { background: var(--neon-pink); bottom: -300px; left: -200px; opacity: 0.05; }
+
+/* Nav */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 12px 1.5rem 0;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+.nav__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 56px;
+  background: rgba(14, 16, 36, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.nav.scrolled .nav__bar {
+  box-shadow: 0 4px 30px rgba(0, 229, 255, 0.06);
+  border-color: var(--border-glow);
+}
+.nav__mobile-menu { display: none; }
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.nav__logo-avatar { width: 36px; height: 36px; border-radius: 50%; }
+.nav__logo-text { height: 20px; width: auto; opacity: 0.9; }
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+.nav__link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-body);
+  text-decoration: none;
+  transition: color 0.2s;
+  letter-spacing: -0.01em;
+}
+.nav__link:hover { color: var(--text-primary); }
+.nav__link--active { color: var(--accent); }
+.nav__cta {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--bg-deep);
+  background: var(--accent);
+  padding: 8px 18px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+}
+.nav__cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 35px rgba(0, 229, 255, 0.3);
+}
+.nav__cta:active { transform: translateY(0); }
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav__hamburger span {
+  width: 22px; height: 1.5px;
+  background: var(--text-body);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  z-index: 1;
+  padding: 100px 0 60px;
+  text-align: center;
+}
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+}
+.hero__badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--neon-green);
+  animation: breathe 2s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+.hero__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  max-width: 680px;
+  margin: 0 auto 20px;
+}
+.hero__title-accent {
+  background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero__sub {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text-body);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+.hero__response {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: rgba(0, 255, 136, 0.06);
+  border: 1px solid rgba(0, 255, 136, 0.15);
+  padding: 10px 20px;
+  border-radius: 100px;
+}
+.hero__response-icon {
+  width: 8px; height: 8px;
+  background: var(--neon-green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
+}
+
+/* Contact Cards */
+.contact-channels {
+  position: relative;
+  z-index: 1;
+  padding: 40px 0 80px;
+}
+.contact-channels__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.contact-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 32px 28px;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+.contact-card--email:hover { border-color: rgba(0, 229, 255, 0.3); }
+.contact-card--whatsapp:hover { border-color: rgba(0, 255, 136, 0.3); }
+.contact-card--instagram:hover { border-color: rgba(255, 45, 107, 0.3); }
+.contact-card__icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.contact-card--email .contact-card__icon { background: rgba(0, 229, 255, 0.08); color: var(--accent); }
+.contact-card--whatsapp .contact-card__icon { background: rgba(0, 255, 136, 0.08); color: var(--neon-green); }
+.contact-card--instagram .contact-card__icon { background: rgba(255, 45, 107, 0.08); color: var(--neon-pink); }
+.contact-card__icon svg { width: 22px; height: 22px; fill: currentColor; }
+.contact-card__label {
+  font-family: 'Orbitron', monospace;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+.contact-card__value {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 18px; font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+.contact-card__desc {
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.55;
+  font-weight: 300;
+  flex-grow: 1;
+}
+.contact-card__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 12px; font-weight: 600;
+  color: var(--accent);
+  transition: gap 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.contact-card--whatsapp .contact-card__action { color: var(--neon-green); }
+.contact-card--instagram .contact-card__action { color: var(--neon-pink); }
+.contact-card:hover .contact-card__action { gap: 10px; }
+.contact-card__action svg {
+  width: 14px; height: 14px;
+  fill: none; stroke: currentColor;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* Contact Form */
+.contact-form-section {
+  position: relative;
+  z-index: 1;
+  padding: 0 0 100px;
+}
+.contact-form-wrapper {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.contact-form-wrapper__header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.contact-form-wrapper__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+.contact-form-wrapper__sub {
+  font-size: 15px;
+  color: var(--text-body);
+  font-weight: 300;
+}
+.contact-form {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 40px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.form-group--full { grid-column: 1 / -1; }
+.form-label {
+  font-size: 13px; font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+.form-label span { color: var(--text-dim); font-weight: 300; }
+.form-input,
+.form-textarea,
+.form-select {
+  background: rgba(7, 8, 15, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; font-weight: 300;
+  color: var(--text-primary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+  width: 100%;
+}
+.form-input::placeholder,
+.form-textarea::placeholder { color: var(--text-dim); }
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  border-color: rgba(0, 229, 255, 0.3);
+  box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.06);
+}
+.form-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235a5a5a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+.form-select option { background: var(--bg-card-solid); color: var(--text-primary); }
+.form-textarea { resize: vertical; min-height: 120px; }
+.form-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 8px;
+  padding: 16px 36px;
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 15px; font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--bg-deep);
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
+}
+.form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 50px rgba(0, 229, 255, 0.35);
+}
+.form-submit:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.form-submit:active { transform: translateY(0); }
+.form-submit svg {
+  width: 16px; height: 16px;
+  fill: none; stroke: currentColor;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+.form-note {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+/* Form success */
+.form-success { display: none; text-align: center; padding: 48px 24px; }
+.form-success.show { display: block; }
+.form-success__icon {
+  width: 56px; height: 56px;
+  background: rgba(0, 255, 136, 0.08);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+}
+.form-success__icon svg {
+  width: 24px; height: 24px;
+  fill: none; stroke: var(--neon-green);
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+.form-success__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 22px; font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.form-success__desc { font-size: 15px; color: var(--text-body); font-weight: 300; }
+.contact-form form.hidden { display: none; }
+
+/* FAQ */
+.faq-section { position: relative; z-index: 1; padding: 0 0 100px; }
+.faq-header { text-align: center; margin-bottom: 48px; }
+.faq-header__label {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 11px; font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.faq-header__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+}
+.faq-list {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+.faq-item:hover { border-color: rgba(0, 229, 255, 0.2); }
+.faq-item.open { border-color: rgba(0, 229, 255, 0.2); }
+.faq-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  background: none; border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; font-weight: 500;
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+}
+.faq-trigger:hover { color: var(--accent); }
+.faq-trigger__icon {
+  flex-shrink: 0;
+  width: 24px; height: 24px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-dim);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s ease;
+}
+.faq-item.open .faq-trigger__icon { transform: rotate(45deg); color: var(--accent); }
+.faq-trigger__icon svg {
+  width: 16px; height: 16px;
+  fill: none; stroke: currentColor;
+  stroke-width: 2; stroke-linecap: round;
+}
+.faq-answer {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.faq-answer__inner {
+  padding: 0 24px 20px;
+  font-size: 14px; color: var(--text-body);
+  line-height: 1.7; font-weight: 300;
+}
+.faq-all-link { text-align: center; margin-top: 32px; }
+.faq-all-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 13px; font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 10px 24px;
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: 100px;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.faq-all-link a:hover {
+  background: rgba(0, 229, 255, 0.06);
+  border-color: rgba(0, 229, 255, 0.4);
+  gap: 10px;
+}
+.faq-all-link a svg {
+  width: 14px; height: 14px;
+  fill: none; stroke: currentColor;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* Footer */
+.footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid var(--border-subtle);
+  padding: 48px 0 32px;
+}
+.footer__top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 40px;
+}
+.footer__logo {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 14px; text-decoration: none;
+}
+.footer__logo-avatar { width: 28px; height: 28px; border-radius: 50%; }
+.footer__logo-text { height: 16px; width: auto; opacity: 0.7; }
+.footer__tagline {
+  font-size: 13px; color: var(--text-dim);
+  line-height: 1.6; max-width: 320px; font-weight: 300;
+}
+.footer__links { display: flex; gap: 32px; }
+.footer__col-title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 11px; font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--text-dim);
+  margin-bottom: 14px;
+}
+.footer__col a {
+  display: block; font-size: 13px;
+  color: var(--text-body); text-decoration: none;
+  padding: 4px 0; transition: color 0.2s; font-weight: 400;
+}
+.footer__col a:hover { color: var(--text-primary); }
+.footer__bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+.footer__copy { font-size: 12px; color: var(--text-dim); font-weight: 300; }
+.footer__copy a { color: var(--text-dim); text-decoration: none; }
+.footer__copy a:hover { color: var(--text-body); }
+.footer__humans { font-size: 12px; color: var(--text-dim); font-weight: 400; }
+
+/* Reveals */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.stagger-item {
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.stagger-item.visible { opacity: 1; transform: translateY(0); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav__links { display: none; }
+  .nav__hamburger { display: flex; }
+  .nav { padding: 8px 1rem 0; }
+  .nav.menu-open .nav__bar {
+    border-radius: 14px 14px 0 0;
+    border-bottom-color: transparent;
+  }
+  .nav__mobile-menu.open {
+    display: flex; flex-direction: column; gap: 16px;
+    background: rgba(14, 16, 36, 0.95);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-top: none;
+    border-radius: 0 0 14px 14px;
+    padding: 20px 24px;
+    margin-top: -1px;
+  }
+  .nav__mobile-menu a {
+    font-size: 14px; color: var(--text-body);
+    text-decoration: none; padding: 8px 0;
+    transition: color 0.2s;
+  }
+  .nav__mobile-menu a:hover { color: var(--text-primary); }
+  .hero { padding: 80px 0 40px; }
+  .contact-channels__grid { grid-template-columns: 1fr; gap: 12px; }
+  .contact-form { padding: 28px 20px; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer__top { grid-template-columns: 1fr; gap: 32px; }
+  .footer__links { gap: 24px; }
+  .footer__bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+@media (max-width: 480px) {
+  .footer__links { flex-direction: column; gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow--cyan"></div>
+<div class="bg-glow bg-glow--pink"></div>
+
+<nav class="nav" id="nav">
+  <div class="nav__bar">
+    <a href="/" class="nav__logo">
+      <img src="/assets/images/logo/avatar.png" alt="The Crazy Graphic Guy" class="nav__logo-avatar" width="36" height="36">
+      <img src="/assets/images/logo/logo-text.png" alt="TCGG" class="nav__logo-text" height="20">
+    </a>
+    <ul class="nav__links">
+      <li><a href="/products" class="nav__link">YouTube Assets</a></li>
+      <li><a href="/about" class="nav__link">Who is TCGG</a></li>
+      <li><a href="/contact" class="nav__link nav__link--active">Contact & Help</a></li>
+      <li><a href="/wall-of-love" class="nav__link">Wall of Creators</a></li>
+      <li><a href="https://tools.thecrazygraphicguy.com/channel-score/" class="nav__cta">Score My Channel</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__mobile-menu" id="mobileMenu">
+    <a href="/products">YouTube Assets</a>
+    <a href="/about">Who is TCGG</a>
+    <a href="/contact" style="color: var(--accent);">Contact & Help</a>
+    <a href="/wall-of-love">Wall of Creators</a>
+    <a href="https://tools.thecrazygraphicguy.com/channel-score/" style="color: var(--accent);">Score My Channel</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero__badge reveal">
+      <span class="hero__badge-dot"></span>
+      Contact & Help
+    </div>
+    <h1 class="hero__title reveal">
+      need help? got a question?<br><span class="hero__title-accent">just hit me up.</span>
+    </h1>
+    <p class="hero__sub reveal">
+      Whether you need help using the assets, have a question about compatibility, or just want to say hi — I'm here.
+    </p>
+    <div class="hero__response reveal">
+      <span class="hero__response-icon"></span>
+      I respond to everything. for real.
+    </div>
+  </div>
+</section>
+
+<section class="contact-channels">
+  <div class="container">
+    <div class="contact-channels__grid">
+      <a href="mailto:hi@thecrazygraphicguy.com" class="contact-card contact-card--email stagger-item">
+        <div class="contact-card__icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <div class="contact-card__label">Email</div>
+        <div class="contact-card__value">hi@thecrazygraphicguy.com</div>
+        <div class="contact-card__desc">For order issues, custom requests, or anything that needs a longer reply.</div>
+        <div class="contact-card__action">Send email <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </a>
+      <a href="https://wa.me/306946659482" target="_blank" rel="noopener" class="contact-card contact-card--whatsapp stagger-item">
+        <div class="contact-card__icon">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+        </div>
+        <div class="contact-card__label">WhatsApp</div>
+        <div class="contact-card__value">+30 694 665 9482</div>
+        <div class="contact-card__desc">Quick questions or just want to chat. Fastest way to reach me.</div>
+        <div class="contact-card__action">Open WhatsApp <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </a>
+      <a href="https://www.instagram.com/thecrazygraphicguy/" target="_blank" rel="noopener" class="contact-card contact-card--instagram stagger-item">
+        <div class="contact-card__icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+        </div>
+        <div class="contact-card__label">Instagram</div>
+        <div class="contact-card__value">@thecrazygraphicguy</div>
+        <div class="contact-card__desc">DM me directly. Also where I post new packs, previews, and behind-the-scenes stuff.</div>
+        <div class="contact-card__action">Open Instagram <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="contact-form-section reveal">
+  <div class="container">
+    <div class="contact-form-wrapper">
+      <div class="contact-form-wrapper__header">
+        <h2 class="contact-form-wrapper__title">Or drop me a message right here</h2>
+        <p class="contact-form-wrapper__sub">I'll get back to you as fast as I can.</p>
+      </div>
+      <div class="contact-form">
+        <form id="contactForm" action="https://formspree.io/f/mqegpwoy" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="name">Name</label>
+              <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="you@email.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group form-group--full">
+              <label class="form-label" for="topic">What's this about? <span>(optional)</span></label>
+              <select class="form-select" id="topic" name="topic">
+                <option value="" disabled selected>Choose a topic</option>
+                <option value="order-issue">Order issue or download problem</option>
+                <option value="compatibility">Compatibility question</option>
+                <option value="custom-request">Custom pack or animation request</option>
+                <option value="collaboration">Collaboration or partnership</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group form-group--full">
+              <label class="form-label" for="message">Message</label>
+              <textarea class="form-textarea" id="message" name="message" placeholder="Tell me what's up..." required></textarea>
+            </div>
+          </div>
+          <button type="submit" class="form-submit" id="submitBtn">
+            Send message
+            <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2" fill="none"/></svg>
+          </button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <div class="form-success__icon">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="form-success__title">Message sent!</div>
+          <div class="form-success__desc">I'll get back to you soon. Usually within a few hours.</div>
+        </div>
+      </div>
+      <p class="form-note">You can also email me directly at hi@thecrazygraphicguy.com</p>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="container">
+    <div class="faq-header reveal">
+      <div class="faq-header__label">Got questions?</div>
+      <h2 class="faq-header__title">Quick answers</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">
+          What software do these work with?
+          <span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer__inner">Any desktop editing software that supports .mov files with transparency — like Premiere, After Effects, Final Cut, DaVinci Resolve, and more.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">
+          How will I receive my files?
+          <span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer__inner">Right after checkout, you'll get a download link + email. All assets come in a clean .zip file, ready to go.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">
+          Do I need any plugins?
+          <span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer__inner">Zero plugins required. These files are optimized for speed and ease of use.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">
+          What if a file doesn't work?
+          <span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer__inner">If anything's broken or weird, DM me on Instagram or send an email at hi@thecrazygraphicguy.com with your order number and a quick note — I'll sort it out fast.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">
+          Can I re-download my packs later?
+          <span class="faq-trigger__icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </button>
+        <div class="faq-answer"><div class="faq-answer__inner">For sure. Just keep your email handy, and if you ever lose access, I'll resend it. Easy.</div></div>
+      </div>
+    </div>
+    <div class="faq-all-link reveal">
+      <a href="/faqs">
+        View all FAQs
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">
+          <img src="/assets/images/logo/avatar.png" alt="TCGG" class="footer__logo-avatar" width="28" height="28">
+          <img src="/assets/images/logo/logo-text.png" alt="The Crazy Graphic Guy" class="footer__logo-text" height="16">
+        </a>
+        <div class="footer__tagline">YouTube animations to level-up your edits. Built for cool creators who edit their own videos.</div>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <div class="footer__col-title">Shop</div>
+          <a href="/products">YouTube CTAs</a>
+          <a href="/products">Stream Overlays</a>
+          <a href="/products">Stinger Transitions</a>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Company</div>
+          <a href="/about">Who is TCGG</a>
+          <a href="/wall-of-love">Wall of Creators</a>
+          <a href="/contact">Contact & Help</a>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Tools</div>
+          <a href="https://tools.thecrazygraphicguy.com/channel-score/">Channel Score</a>
+          <a href="https://www.instagram.com/thecrazygraphicguy/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copy">&copy; 2026 The Crazy Graphic Guy. All rights reserved. <a href="/terms-of-service">Terms</a> &middot; <a href="/refund-policy">Refunds</a></div>
+      <div class="footer__humans">Made by humans for humans</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+document.getElementById('hamburger').addEventListener('click', function() {
+  var menu = document.getElementById('mobileMenu');
+  var nav = document.getElementById('nav');
+  menu.classList.toggle('open');
+  nav.classList.toggle('menu-open');
+  var spans = this.querySelectorAll('span');
+  if (menu.classList.contains('open')) {
+    spans[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
+  } else {
+    spans[0].style.transform = 'none';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'none';
+  }
+});
+
+document.querySelectorAll('.faq-trigger').forEach(function(trigger) {
+  trigger.addEventListener('click', function() {
+    var item = this.closest('.faq-item');
+    var answer = item.querySelector('.faq-answer');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
+      if (openItem !== item) {
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+        openItem.querySelector('.faq-answer').style.maxHeight = '0';
+      }
+    });
+    if (isOpen) {
+      item.classList.remove('open');
+      this.setAttribute('aria-expanded', 'false');
+      answer.style.maxHeight = '0';
+    } else {
+      item.classList.add('open');
+      this.setAttribute('aria-expanded', 'true');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = this;
+  var btn = document.getElementById('submitBtn');
+  var originalText = btn.innerHTML;
+  btn.innerHTML = 'Sending...';
+  btn.disabled = true;
+  btn.style.opacity = '0.6';
+  fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  }).then(function(response) {
+    if (response.ok) {
+      form.classList.add('hidden');
+      document.getElementById('formSuccess').classList.add('show');
+    } else {
+      btn.innerHTML = 'Something went wrong — try again';
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      setTimeout(function() { btn.innerHTML = originalText; }, 3000);
+    }
+  }).catch(function() {
+    btn.innerHTML = 'Network error — try again';
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    setTimeout(function() { btn.innerHTML = originalText; }, 3000);
+  });
+});
+
+var revealObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      var staggerItems = entry.target.querySelectorAll('.stagger-item');
+      staggerItems.forEach(function(item, i) {
+        setTimeout(function() { item.classList.add('visible'); }, i * 120);
+      });
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
+
+var staggerObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      var grid = entry.target.closest('.contact-channels__grid');
+      if (grid) {
+        grid.querySelectorAll('.stagger-item').forEach(function(item, i) {
+          setTimeout(function() { item.classList.add('visible'); }, i * 120);
+        });
+      }
+      staggerObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+var firstCard = document.querySelector('.contact-channels .stagger-item');
+if (firstCard) staggerObserver.observe(firstCard);
+</script>
+</body>
+</html>

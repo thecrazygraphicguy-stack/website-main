@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — The Crazy Graphic Guy</title>
+<meta name="description" content="Terms of Service for The Crazy Graphic Guy digital products and custom services.">
+<meta property="og:title" content="Terms of Service — The Crazy Graphic Guy">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thecrazygraphicguy.com/terms-of-service">
+<link rel="canonical" href="https://thecrazygraphicguy.com/terms-of-service">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;300;400;500&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+@font-face {
+  font-family: 'TASA Orbiter';
+  src: url('/assets/fonts/TASAOrbiter-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400 800;
+  font-display: swap;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg-deep: #07080f;
+  --bg-card: rgba(14, 16, 36, 0.85);
+  --bg-card-solid: #0e1024;
+  --accent: #00e5ff;
+  --accent-dim: rgba(0, 229, 255, 0.15);
+  --accent-glow: rgba(0, 229, 255, 0.3);
+  --neon-cyan: #00e5ff;
+  --neon-pink: #ff2d6b;
+  --text-primary: #e8e8f0;
+  --text-body: #999999;
+  --text-dim: #5a5a5a;
+  --border-subtle: rgba(0, 229, 255, 0.1);
+  --border-glow: rgba(0, 229, 255, 0.3);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --container: 1140px;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300; background: var(--bg-deep);
+  color: var(--text-body); min-height: 100vh;
+  overflow-x: hidden; -webkit-font-smoothing: antialiased;
+}
+.container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 1.5rem; }
+
+/* Background */
+.bg-grid {
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.025) 1px, transparent 1px);
+  background-size: 60px 60px; pointer-events: none; z-index: 0;
+}
+.bg-glow { position: fixed; width: 600px; height: 600px; border-radius: 50%; filter: blur(160px); pointer-events: none; z-index: 0; }
+.bg-glow--cyan { background: var(--accent); top: -200px; right: -200px; opacity: 0.10; }
+.bg-glow--pink { background: var(--neon-pink); bottom: -300px; left: -200px; opacity: 0.05; }
+
+/* Nav */
+.nav { position: sticky; top: 0; z-index: 100; padding: 12px 1.5rem 0; max-width: var(--container); margin: 0 auto; }
+.nav__bar { display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 56px; background: rgba(14, 16, 36, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--border-subtle); border-radius: 14px; transition: box-shadow 0.3s ease, border-color 0.3s ease; }
+.nav.scrolled .nav__bar { box-shadow: 0 4px 30px rgba(0, 229, 255, 0.06); border-color: var(--border-glow); }
+.nav__mobile-menu { display: none; }
+.nav__logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav__logo-avatar { width: 36px; height: 36px; border-radius: 50%; }
+.nav__logo-text { height: 20px; width: auto; opacity: 0.9; }
+.nav__links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav__link { font-size: 13px; font-weight: 400; color: var(--text-body); text-decoration: none; transition: color 0.2s; letter-spacing: -0.01em; }
+.nav__link:hover { color: var(--text-primary); }
+.nav__cta { font-family: 'TASA Orbiter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: -0.01em; color: var(--bg-deep); background: var(--accent); padding: 8px 18px; border-radius: 100px; text-decoration: none; transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1); box-shadow: 0 0 20px rgba(0, 229, 255, 0.15); }
+.nav__cta:hover { transform: translateY(-1px); box-shadow: 0 0 35px rgba(0, 229, 255, 0.3); }
+.nav__cta:active { transform: translateY(0); }
+.nav__hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.nav__hamburger span { width: 22px; height: 1.5px; background: var(--text-body); border-radius: 2px; transition: all 0.3s; }
+
+/* Legal content */
+.legal {
+  position: relative; z-index: 1;
+  padding: 100px 0 80px;
+}
+.legal__header {
+  margin-bottom: 48px;
+}
+.legal__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800; color: var(--text-primary);
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+.legal__updated {
+  font-size: 13px; color: var(--text-dim);
+}
+.legal__intro {
+  font-size: 15px; color: var(--text-body);
+  line-height: 1.7; max-width: 720px;
+  margin-bottom: 48px;
+}
+.legal__intro strong { color: var(--text-primary); font-weight: 500; }
+.legal__content {
+  max-width: 720px;
+}
+.legal__section {
+  margin-bottom: 40px;
+}
+.legal__section-title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 20px; font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.legal__section p {
+  font-size: 14px; color: var(--text-body);
+  line-height: 1.75; margin-bottom: 14px;
+  font-weight: 300;
+}
+.legal__section p:last-child { margin-bottom: 0; }
+.legal__section strong { color: var(--text-primary); font-weight: 500; }
+.legal__section a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+.legal__section a:hover { color: var(--text-primary); }
+.legal__section ul {
+  list-style: none; padding: 0;
+  margin: 12px 0;
+}
+.legal__section ul li {
+  font-size: 14px; color: var(--text-body);
+  line-height: 1.7; font-weight: 300;
+  padding: 4px 0 4px 20px;
+  position: relative;
+}
+.legal__section ul li::before {
+  content: '';
+  position: absolute; left: 0; top: 12px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(0, 229, 255, 0.3);
+}
+.legal__section h3 {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 15px; font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin: 20px 0 10px;
+}
+
+/* Footer */
+.footer { position: relative; z-index: 1; border-top: 1px solid var(--border-subtle); padding: 48px 0 32px; }
+.footer__top { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: start; margin-bottom: 40px; }
+.footer__logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; text-decoration: none; }
+.footer__logo-avatar { width: 28px; height: 28px; border-radius: 50%; }
+.footer__logo-text { height: 16px; width: auto; opacity: 0.7; }
+.footer__tagline { font-size: 13px; color: var(--text-dim); line-height: 1.6; max-width: 320px; font-weight: 300; }
+.footer__links { display: flex; gap: 32px; }
+.footer__col-title { font-family: 'TASA Orbiter', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: -0.01em; color: var(--text-dim); margin-bottom: 14px; }
+.footer__col a { display: block; font-size: 13px; color: var(--text-body); text-decoration: none; padding: 4px 0; transition: color 0.2s; font-weight: 400; }
+.footer__col a:hover { color: var(--text-primary); }
+.footer__bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.04); }
+.footer__copy { font-size: 12px; color: var(--text-dim); font-weight: 300; }
+.footer__copy a { color: var(--text-dim); text-decoration: none; }
+.footer__copy a:hover { color: var(--text-body); }
+.footer__humans { font-size: 12px; color: var(--text-dim); font-weight: 400; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav__links { display: none; }
+  .nav__hamburger { display: flex; }
+  .nav { padding: 8px 1rem 0; }
+  .nav.menu-open .nav__bar { border-radius: 14px 14px 0 0; border-bottom-color: transparent; }
+  .nav__mobile-menu.open { display: flex; flex-direction: column; gap: 16px; background: rgba(14, 16, 36, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--border-subtle); border-top: none; border-radius: 0 0 14px 14px; padding: 20px 24px; margin-top: -1px; }
+  .nav__mobile-menu a { font-size: 14px; color: var(--text-body); text-decoration: none; padding: 8px 0; transition: color 0.2s; }
+  .nav__mobile-menu a:hover { color: var(--text-primary); }
+  .legal { padding: 80px 0 60px; }
+  .footer__top { grid-template-columns: 1fr; gap: 32px; }
+  .footer__links { gap: 24px; }
+  .footer__bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+@media (max-width: 480px) {
+  .footer__links { flex-direction: column; gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow--cyan"></div>
+<div class="bg-glow bg-glow--pink"></div>
+
+<nav class="nav" id="nav">
+  <div class="nav__bar">
+    <a href="/" class="nav__logo">
+      <img src="/assets/images/logo/avatar.png" alt="The Crazy Graphic Guy" class="nav__logo-avatar" width="36" height="36">
+      <img src="/assets/images/logo/logo-text.png" alt="TCGG" class="nav__logo-text" height="20">
+    </a>
+    <ul class="nav__links">
+      <li><a href="/products" class="nav__link">YouTube Assets</a></li>
+      <li><a href="/about" class="nav__link">Who is TCGG</a></li>
+      <li><a href="/contact" class="nav__link">Contact & Help</a></li>
+      <li><a href="/wall-of-love" class="nav__link">Wall of Creators</a></li>
+      <li><a href="https://tools.thecrazygraphicguy.com/channel-score/" class="nav__cta">Score My Channel</a></li>
+    </ul>
+    <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__mobile-menu" id="mobileMenu">
+    <a href="/products">YouTube Assets</a>
+    <a href="/about">Who is TCGG</a>
+    <a href="/contact">Contact & Help</a>
+    <a href="/wall-of-love">Wall of Creators</a>
+    <a href="https://tools.thecrazygraphicguy.com/channel-score/" style="color: var(--accent);">Score My Channel</a>
+  </div>
+</nav>
+
+<section class="legal">
+  <div class="container">
+    <div class="legal__header">
+      <h1 class="legal__title">Terms of Service</h1>
+      <p class="legal__updated">Last updated: February 5, 2026</p>
+    </div>
+
+    <p class="legal__intro">These Terms of Service ("Terms") govern your access to and use of digital products and custom services sold by <strong>The Crazy Graphic Guy</strong> ("I", "me", "my"). By purchasing, downloading, or using my products or services, you agree to these Terms.</p>
+
+    <div class="legal__content">
+
+      <div class="legal__section">
+        <h2 class="legal__section-title">Who I am</h2>
+        <p>This store is operated by:</p>
+        <p><strong>Luis Gerardo Sarmiento Villalba</strong><br>Katerini 60132, Greece<br>AFM (Tax ID): 164332601<br>Email: <a href="mailto:hi@thecrazygraphicguy.com">hi@thecrazygraphicguy.com</a></p>
+      </div>
+
+      <div class="legal__section">
+        <h2 class="legal__section-title">What I sell</h2>
+        <p>I offer:</p>
+        <ul>
+          <li><strong>Digital downloads</strong> via lemonsqueezy.com (motion assets and related files)</li>
+          <li><strong>Custom services</strong> through Stripe payments (custom modifications and made-to-order work)</li>
+        </ul>
+      </div>
+
+      <div class="legal__section">
+        <h2 class="legal__section-title">Digital delivery</h2>
+        <p>Digital products are delivered via download link to your email right after the payment confirmation. You are responsible for downloading and backing up your files.</p>
+      </div>
+
+      <div class="legal__section">
+        <h2 class="legal__section-title">License and usage</h2>
+        <p>When you purchase a digital product, you receive a <strong>non-exclusive, non-transferable license</strong> to use the assets.</p>
+        <h3>You may:</h3>
+        <ul>
+          <li>Use the assets in personal projects and <strong>client work</strong> (including monetized and sponsored videos)</li>
+          <li>Edit/modify the assets to fit your project</li>
+        </ul>
+        <h3>You may not:</h3>
+        <ul>
+          <li>Resell, redistribute, share, or re-upload the assets (even if modified)</li>
+          <li>Publish the assets as standalone files on marketplaces, "free resources" sites, or asset libraries</li>
+          <li>Include the assets inside products/templates meant for resale (e.g., template packs)</li>
+          <li>Claim the assets as your own or register them as trademarks</li>
+        </ul>
+        <p>If you're unsure about a specific use case, email me at <a href="mailto:hi@thecrazygraphicguy.com">hi@thecrazygraphicguy.com</a></p>
+      </div>
+
+      <div class="legal__section">
+        <h2 class="legal__section-title">Custom services</h2>
+        <p>Custom services are made-to-order and based on the information you provide.</p>
+        <h3>What I need from you:</h3>
+        <ul>
+          <li>Clear instructions and any references needed to match your request</li>
+        </ul>
+        <h3>What's included:</h3>
+        <ul>
+          <li>The specific custom work described on the product page or in our written agreement</li>
+        </ul>
+        <h3>Revisions:</h3>
+        <p>Revisions (if included) are limited to what's stated on the product page or agreement. Anything outside that scope may require an additional fee.</p>
+        <h3>Timeline:</h3>
+        <p>Delivery time depends on complexity and my current queue. I'll confirm an estimated timeline after reviewing your request. If I'm waiting on your details/files/approval, the timeline may shift.</p>
+        <h3>Communication (Trello only):</h3>
+        <p>During your custom project, communication and updates will happen <strong>only through your Trello board</strong>. This keeps everything clean: notes, files, approvals, and progress in one place.</p>
+        <h3>Payments (Stripe):</h3>
+        <p>Payments are processed securely through <strong>Stripe</strong> (via my checkout provider). I do not store your full payment details on my servers.</p>
+      </div>
+
+      <div class="legal__section">
+        <h2 class="legal__section-title">Payments and chargebacks</h2>
+        <p>Payments are processed through the checkout provider(s) used by my store. If you have an issue, please contact me before filing a chargeback. Please, give me the chance to try to solve your issue first.</p>
+        <p>Unresolved chargebacks may result in loss of access to downloads and support while the dispute is handled.</p>
+      </div>
+
+      <div class="legal__section">
+        <h2 class="legal__section-title">No guarantees</h2>
+        <p>My assets and services can help improve workflow and presentation of your edits, but I do not guarantee specific results (views, retention, CTR, subscribers, revenue, etc.). Outcomes depend mainly on the quality of the creator's content, on how the assets are used, and on the channel's topic itself.</p>
+      </div>
+
+      <div class="legal__section">
+        <h2 class="legal__section-title">Support</h2>
+        <p>If you need help with downloads or files, DM me on Instagram <a href="https://www.instagram.com/thecrazygraphicguy/" target="_blank" rel="noopener">@thecrazygraphicguy</a> or write me at <a href="mailto:hi@thecrazygraphicguy.com">hi@thecrazygraphicguy.com</a>. Support does not include custom editing work unless you purchase a custom service.</p>
+      </div>
+
+      <div class="legal__section">
+        <h2 class="legal__section-title">Intellectual property</h2>
+        <p>All assets and designs remain my intellectual property. You are purchasing a license to use them, not ownership.</p>
+      </div>
+
+      <div class="legal__section">
+        <h2 class="legal__section-title">Limitation of liability</h2>
+        <p>To the maximum extent permitted by law, I am not liable for indirect or consequential damages (lost revenue, lost profits, loss of data, business interruption, etc.). My total liability for any claim is limited to the amount you paid for the product or service in question.</p>
+      </div>
+
+      <div class="legal__section">
+        <h2 class="legal__section-title">Termination</h2>
+        <p>If you violate these Terms, the license you get with your purchase may be terminated immediately. You must stop using the assets and delete any copies in your possession or control.</p>
+      </div>
+
+      <div class="legal__section">
+        <h2 class="legal__section-title">Governing law</h2>
+        <p>These Terms are governed by the laws of <strong>Greece</strong>.</p>
+      </div>
+
+      <div class="legal__section">
+        <h2 class="legal__section-title">Copyright complaints (DMCA-style)</h2>
+        <p>If you believe something sold here infringes your copyright, contact <a href="mailto:hi@thecrazygraphicguy.com">hi@thecrazygraphicguy.com</a> with:</p>
+        <ul>
+          <li>Your full name and contact info</li>
+          <li>A description of the copyrighted work</li>
+          <li>The link/product involved</li>
+          <li>A statement that you have a good-faith belief the use is unauthorized</li>
+          <li>A statement that the information is accurate</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">
+          <img src="/assets/images/logo/avatar.png" alt="TCGG" class="footer__logo-avatar" width="28" height="28">
+          <img src="/assets/images/logo/logo-text.png" alt="The Crazy Graphic Guy" class="footer__logo-text" height="16">
+        </a>
+        <div class="footer__tagline">YouTube animations to level-up your edits. Built for cool creators who edit their own videos.</div>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <div class="footer__col-title">Shop</div>
+          <a href="/products">YouTube CTAs</a>
+          <a href="/products">Stream Overlays</a>
+          <a href="/products">Stinger Transitions</a>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Company</div>
+          <a href="/about">Who is TCGG</a>
+          <a href="/wall-of-love">Wall of Creators</a>
+          <a href="/contact">Contact & Help</a>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Tools</div>
+          <a href="https://tools.thecrazygraphicguy.com/channel-score/">Channel Score</a>
+          <a href="/faqs">FAQs</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copy">&copy; 2026 The Crazy Graphic Guy. All rights reserved. <a href="/terms-of-service">Terms</a> &middot; <a href="/refund-policy">Refunds</a></div>
+      <div class="footer__humans">Made by humans for humans</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+document.getElementById('hamburger').addEventListener('click', function() {
+  var menu = document.getElementById('mobileMenu');
+  var nav = document.getElementById('nav');
+  menu.classList.toggle('open');
+  nav.classList.toggle('menu-open');
+  var spans = this.querySelectorAll('span');
+  if (menu.classList.contains('open')) {
+    spans[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
+  } else {
+    spans[0].style.transform = 'none';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'none';
+  }
+});
+</script>
+</body>
+</html>

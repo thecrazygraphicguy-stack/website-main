@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free YouTube CTA Drop — The Crazy Graphic Guy</title>
+<meta name="description" content="Free animated CTA graphics for YouTube editors. 7 designs, MOV + WEBM with alpha + PNG stills. Drag & drop into CapCut, DaVinci, Premiere, Filmora or Final Cut.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=TASA+Orbiter:wght@400..800&family=DM+Sans:wght@200;300;400;500&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-deep: #07080f;
+  --bg-card: rgba(14, 16, 36, 0.85);
+  --bg-card-solid: #0e1024;
+  --bg-elevated: #172528;
+  --accent: #00e5ff;
+  --accent-dim: rgba(0, 229, 255, 0.15);
+  --accent-glow: rgba(0, 229, 255, 0.3);
+  --neon-cyan: #00e5ff;
+  --neon-pink: #ff2d6b;
+  --neon-green: #00ff88;
+  --neon-amber: #ffa726;
+  --neon-purple: #b44dff;
+  --text-primary: #e8e8f0;
+  --text-body: #999999;
+  --text-dim: #5a5a5a;
+  --border-subtle: rgba(0, 229, 255, 0.1);
+  --border-glow: rgba(0, 229, 255, 0.3);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --container: 1140px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  background: var(--bg-deep);
+  color: var(--text-body);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === BACKGROUND EFFECTS === */
+.bg-grid {
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none; z-index: 0;
+}
+.bg-glow {
+  position: fixed;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  filter: blur(160px);
+  pointer-events: none; z-index: 0;
+}
+.bg-glow--cyan { background: var(--accent); top: -200px; right: -200px; opacity: 0.10; }
+.bg-glow--pink { background: var(--neon-pink); bottom: -300px; left: -200px; opacity: 0.05; }
+
+/* === CONTAINER === */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* === NAV === */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(7, 8, 15, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: box-shadow 0.3s ease;
+}
+.nav.scrolled {
+  box-shadow: 0 4px 30px rgba(0, 229, 255, 0.06);
+}
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.nav__logo-avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+}
+.nav__logo-text {
+  height: 16px;
+  width: auto;
+  opacity: 0.8;
+}
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.nav__links a {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-body);
+  text-decoration: none;
+  transition: color 0.2s;
+  letter-spacing: -0.01em;
+}
+.nav__links a:hover { color: var(--text-primary); }
+.nav__links a.nav__cta {
+  color: var(--accent);
+  border: 1px solid var(--accent-dim);
+  padding: 7px 16px;
+  border-radius: 100px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav__links a.nav__cta:hover {
+  border-color: var(--accent-glow);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.08);
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 22px; height: 1.5px;
+  background: var(--text-body);
+  transition: all 0.3s ease;
+}
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 60px; left: 0; right: 0; bottom: 0;
+  background: rgba(7, 8, 15, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 99;
+  padding: 2rem 1.5rem;
+  flex-direction: column;
+  gap: 8px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-body);
+  text-decoration: none;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--text-primary); }
+.mobile-menu a.nav__cta {
+  color: var(--accent);
+  border: 1px solid var(--accent-dim);
+  border-radius: 100px;
+  text-align: center;
+  padding: 12px 24px;
+  margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .nav__links { display: none; }
+  .hamburger { display: flex; }
+}
+
+/* === HERO === */
+.hero {
+  position: relative;
+  z-index: 1;
+  padding: 80px 0 0;
+}
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.hero__content {}
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--neon-green);
+  background: rgba(0, 255, 136, 0.08);
+  border: 1px solid rgba(0, 255, 136, 0.15);
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+.hero__badge svg {
+  width: 14px; height: 14px;
+  fill: none; stroke: var(--neon-green); stroke-width: 2;
+}
+.hero__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  text-wrap: balance;
+}
+.hero__title span {
+  color: var(--accent);
+}
+.hero__subtitle {
+  font-size: 15px;
+  color: var(--text-body);
+  line-height: 1.7;
+  max-width: 480px;
+  margin-bottom: 32px;
+  font-weight: 300;
+}
+.hero__subtitle strong {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #fff;
+  background: var(--neon-pink);
+  padding: 18px 36px;
+  border: none;
+  border-radius: var(--radius);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 30px rgba(255, 45, 107, 0.2);
+}
+.hero__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 50px rgba(255, 45, 107, 0.35);
+}
+.hero__cta:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 0 20px rgba(255, 45, 107, 0.15);
+}
+.hero__cta:focus-visible {
+  outline: 2px solid var(--neon-pink);
+  outline-offset: 2px;
+}
+.hero__cta svg {
+  width: 18px; height: 18px;
+  fill: none; stroke: #fff; stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.hero__note {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 14px;
+  font-weight: 300;
+}
+.hero__note a {
+  color: var(--neon-purple);
+  text-decoration: none;
+}
+.hero__note a:hover { text-decoration: underline; }
+.hero__video {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero__video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card-solid);
+}
+.hero__video-wrap iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 48px 0 0; }
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    text-align: center;
+  }
+  .hero__subtitle { margin: 0 auto 28px; }
+  .hero__video { order: -1; }
+}
+
+/* === SPECS === */
+.specs {
+  position: relative;
+  z-index: 1;
+  padding: 80px 0;
+}
+.specs__label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+.specs__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.spec-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 24px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: border-color 0.3s ease;
+}
+.spec-card:hover {
+  border-color: var(--accent-glow);
+}
+.spec-card__icon {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+.spec-card__icon svg {
+  width: 20px; height: 20px;
+  fill: none; stroke-width: 1.5;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.spec-card__icon--cyan { background: rgba(0, 229, 255, 0.1); }
+.spec-card__icon--cyan svg { stroke: var(--neon-cyan); }
+.spec-card__icon--pink { background: rgba(255, 45, 107, 0.1); }
+.spec-card__icon--pink svg { stroke: var(--neon-pink); }
+.spec-card__icon--green { background: rgba(0, 255, 136, 0.1); }
+.spec-card__icon--green svg { stroke: var(--neon-green); }
+.spec-card__icon--amber { background: rgba(255, 167, 38, 0.1); }
+.spec-card__icon--amber svg { stroke: var(--neon-amber); }
+.spec-card__icon--purple { background: rgba(180, 77, 255, 0.1); }
+.spec-card__icon--purple svg { stroke: var(--neon-purple); }
+.spec-card__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+.spec-card__desc {
+  font-size: 13px;
+  color: var(--text-body);
+  line-height: 1.5;
+  font-weight: 300;
+}
+.spec-card__value {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+  .specs__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* === EDITORS === */
+.editors {
+  position: relative;
+  z-index: 1;
+  padding: 0 0 80px;
+}
+.editors__inner {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 32px 40px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.editors__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+.editors__sub {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 24px;
+  font-weight: 300;
+}
+.editors__logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.editors__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.editors__logo img {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+.editors__logo:hover img { opacity: 1; }
+.editors__logo-name {
+  font-size: 11px;
+  color: var(--text-dim);
+  font-weight: 400;
+}
+.editors__bottom {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.editors__perk {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-body);
+  font-weight: 400;
+}
+.editors__perk svg {
+  width: 14px; height: 14px;
+  fill: none; stroke: var(--neon-green); stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .editors__inner { padding: 24px 20px; }
+  .editors__logos { gap: 20px; }
+  .editors__logo img { width: 36px; height: 36px; }
+  .editors__bottom { flex-direction: column; gap: 10px; }
+}
+
+/* === WHY === */
+.why {
+  position: relative;
+  z-index: 1;
+  padding: 0 0 80px;
+}
+.why__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.why__label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--neon-pink);
+  margin-bottom: 16px;
+}
+.why__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  text-wrap: balance;
+}
+.why__text {
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.7;
+  font-weight: 300;
+}
+.why__text strong {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+.why__text p + p {
+  margin-top: 14px;
+}
+.why__visual {
+  position: relative;
+}
+.why__stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.why__stat {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.why__stat-number {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+.why__stat-number--cyan { color: var(--neon-cyan); }
+.why__stat-number--pink { color: var(--neon-pink); }
+.why__stat-number--green { color: var(--neon-green); }
+.why__stat-number--amber { color: var(--neon-amber); }
+.why__stat-label {
+  font-size: 11px;
+  color: var(--text-dim);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .why__inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* === DOWNLOAD STRIP === */
+.dl-strip {
+  position: relative;
+  z-index: 1;
+  padding: 0 0 80px;
+}
+.dl-strip__inner {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255, 45, 107, 0.06) 0%, rgba(180, 77, 255, 0.04) 100%);
+  border: 1px solid rgba(255, 45, 107, 0.15);
+  border-radius: var(--radius);
+  padding: 60px;
+  text-align: center;
+}
+.dl-strip__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+.dl-strip__sub {
+  font-size: 14px;
+  color: var(--text-body);
+  margin-bottom: 24px;
+  font-weight: 300;
+}
+.dl-strip__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #fff;
+  background: var(--neon-pink);
+  padding: 18px 36px;
+  border: none;
+  border-radius: var(--radius);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 30px rgba(255, 45, 107, 0.2);
+}
+.dl-strip__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 50px rgba(255, 45, 107, 0.35);
+}
+.dl-strip__cta:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 0 20px rgba(255, 45, 107, 0.15);
+}
+.dl-strip__cta:focus-visible {
+  outline: 2px solid var(--neon-pink);
+  outline-offset: 2px;
+}
+.dl-strip__cta svg {
+  width: 18px; height: 18px;
+  fill: none; stroke: #fff; stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.dl-strip__ps {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-top: 18px;
+  font-weight: 300;
+  line-height: 1.6;
+}
+.dl-strip__ps a {
+  color: var(--neon-purple);
+  text-decoration: none;
+}
+.dl-strip__ps a:hover { text-decoration: underline; }
+.dl-strip__wrap {
+  position: relative;
+}
+.dl-strip__sticker {
+  position: absolute;
+  top: -36px;
+  right: -10px;
+  width: 150px;
+  height: auto;
+  pointer-events: none;
+  z-index: 3;
+  filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.5));
+  transform: rotate(6deg);
+}
+
+@media (max-width: 768px) {
+  .dl-strip__sticker {
+    width: 100px;
+    top: -10px;
+    right: -4px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dl-strip__inner { padding: 36px 20px; }
+}
+
+/* === UPSELL === */
+.upsell {
+  position: relative;
+  z-index: 1;
+  padding: 0 0 100px;
+}
+.upsell__header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+.upsell__label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--neon-amber);
+  margin-bottom: 10px;
+}
+.upsell__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+.upsell__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.upsell-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+.upsell-card:hover {
+  border-color: var(--accent-glow);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 229, 255, 0.08);
+}
+.upsell-card__img-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.upsell-card__img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.upsell-card:hover .upsell-card__img {
+  transform: scale(1.04);
+}
+.upsell-card__price {
+  position: absolute;
+  top: 10px; right: 10px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(7, 8, 15, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 4px 10px;
+  border-radius: 100px;
+  border: 1px solid var(--accent-dim);
+}
+.upsell-card__body {
+  padding: 16px 18px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.upsell-card__number {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  opacity: 0.5;
+}
+.upsell-card__name {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+.upsell-card__desc {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.5;
+  font-weight: 300;
+  flex: 1;
+}
+.upsell-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-top: 12px;
+  transition: gap 0.2s ease;
+}
+.upsell-card:hover .upsell-card__link { gap: 8px; }
+.upsell-card__link svg {
+  width: 14px; height: 14px;
+  fill: none; stroke: currentColor; stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+@media (max-width: 768px) {
+  .upsell__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+/* === FOOTER === */
+.footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--border-subtle);
+  padding: 48px 0 32px;
+}
+.footer__top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 40px;
+}
+.footer__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  text-decoration: none;
+}
+.footer__logo-avatar { width: 28px; height: 28px; border-radius: 50%; }
+.footer__logo-text { height: 16px; width: auto; opacity: 0.7; }
+.footer__tagline {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  max-width: 320px;
+  font-weight: 300;
+}
+.footer__links {
+  display: flex;
+  gap: 32px;
+}
+.footer__col-title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--text-dim);
+  margin-bottom: 14px;
+}
+.footer__col a {
+  display: block;
+  font-size: 13px;
+  color: var(--text-body);
+  text-decoration: none;
+  padding: 4px 0;
+  transition: color 0.2s;
+  font-weight: 400;
+}
+.footer__col a:hover { color: var(--text-primary); }
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+.footer__copy {
+  font-size: 12px;
+  color: var(--text-dim);
+  font-weight: 300;
+}
+.footer__copy a { color: var(--text-dim); text-decoration: none; }
+.footer__humans {
+  font-size: 12px;
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .footer__top {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .footer__links {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .footer__bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}
+
+/* === REVEAL === */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === STAGGER === */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.stagger-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow--cyan"></div>
+<div class="bg-glow bg-glow--pink"></div>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="/" class="nav__logo">
+      <img src="https://framerusercontent.com/images/eng142NeUZhf3lahgIltzclPUVs.png?width=224&height=224" alt="TCGG" class="nav__logo-avatar" width="32" height="32">
+      <img src="https://tools.thecrazygraphicguy.com/channel-score/assets/logo-text.png" alt="The Crazy Graphic Guy" class="nav__logo-text" height="16">
+    </a>
+    <div class="nav__links">
+      <a href="/">YouTube Assets</a>
+      <a href="/about">Who is TCGG</a>
+      <a href="https://tools.thecrazygraphicguy.com/channel-score/" class="nav__cta">Channel Score</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/">YouTube Assets</a>
+  <a href="/about">Who is TCGG</a>
+  <a href="https://tools.thecrazygraphicguy.com/channel-score/" class="nav__cta">Channel Score</a>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero__inner">
+      <div class="hero__content">
+        <div class="hero__badge">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Free drop
+        </div>
+        <h1 class="hero__title">
+          <span>YouTube CTA Drop</span> for my fellow editors
+        </h1>
+        <p class="hero__subtitle">
+          . . . this will save you like 3 hours of looking for a decent CTA animation.
+          <strong>7 animated designs</strong>, all with transparent background.
+          Just drag into CapCut, DaVinci, Premiere & Filmora.
+          <strong>No After Effects. No plugins. No catch.</strong>
+        </p>
+        <a href="https://drops.thecrazygraphicguy.com/download/7qk3p" class="hero__cta">
+          download the free pack
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </a>
+        <p class="hero__note">
+          PS: tag me <a href="https://www.instagram.com/thecrazygraphicguy/" target="_blank" rel="noopener">@thecrazygraphicguy</a> when you use them. I reply to every single one.
+        </p>
+      </div>
+      <div class="hero__video">
+        <div class="hero__video-wrap">
+          <iframe src="https://player.vimeo.com/video/1164428324?autoplay=1&loop=1&muted=1&background=1" allow="autoplay; fullscreen" allowfullscreen loading="eager" title="YouTube CTA Drop preview"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Specs -->
+<section class="specs reveal">
+  <div class="container">
+    <div class="specs__label">What you get (for free, seriously)</div>
+    <div class="specs__grid stagger-parent">
+      <div class="spec-card stagger-item">
+        <div class="spec-card__icon spec-card__icon--cyan">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M10 8l6 4-6 4V8z"/></svg>
+        </div>
+        <div class="spec-card__title">7 animated CTA designs</div>
+        <div class="spec-card__desc">Subscribe button, like, notification bell, and more. Smooth in & out transitions.</div>
+      </div>
+      <div class="spec-card stagger-item">
+        <div class="spec-card__icon spec-card__icon--pink">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <div class="spec-card__title">MOV + WEBM files</div>
+        <div class="spec-card__desc">With transparent background. Just drag on top of your video &mdash; the background is invisible.</div>
+      </div>
+      <div class="spec-card stagger-item">
+        <div class="spec-card__icon spec-card__icon--green">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <div class="spec-card__title">PNG still images</div>
+        <div class="spec-card__desc">For thumbnails, banners, or social posts. Crisp on any screen.</div>
+      </div>
+      <div class="spec-card stagger-item">
+        <div class="spec-card__icon spec-card__icon--amber">
+          <svg viewBox="0 0 24 24"><path d="M4 14a1 1 0 01-.78-1.63l9.9-10.2a.5.5 0 01.86.46l-1.92 6.02A1 1 0 0013 10h7a1 1 0 01.78 1.63l-9.9 10.2a.5.5 0 01-.86-.46l1.92-6.02A1 1 0 0011 14H4z"/></svg>
+        </div>
+        <div class="spec-card__title">Full HD resolution</div>
+        <div class="spec-card__desc">Crisp on any screen. Designed for both 16:9 and 9:16 formats.</div>
+      </div>
+      <div class="spec-card stagger-item">
+        <div class="spec-card__icon spec-card__icon--purple">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="spec-card__title">Commercial license</div>
+        <div class="spec-card__desc">No copyright headaches. Use them in your videos, monetized or not. Yours forever.</div>
+      </div>
+      <div class="spec-card stagger-item">
+        <div class="spec-card__icon spec-card__icon--cyan">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </div>
+        <div class="spec-card__title">One download. Done.</div>
+        <div class="spec-card__desc">No plugins needed. No After Effects. No tutorials. If you can drag a file, you can use these.</div>
+        <div class="spec-card__value">~539 MB</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Editors -->
+<section class="editors reveal">
+  <div class="container">
+    <div class="editors__inner">
+      <div class="editors__title">Works with your favorite editor</div>
+      <div class="editors__sub">drag & drop, done</div>
+      <div class="editors__logos">
+        <div class="editors__logo">
+          <img src="https://framerusercontent.com/images/veSJDFQzHEiAnjdPnrUifFJCkfs.png?width=66&height=64" alt="CapCut" width="44" height="44">
+          <span class="editors__logo-name">CapCut</span>
+        </div>
+        <div class="editors__logo">
+          <img src="https://framerusercontent.com/images/ZfEvF09XSV57asNsrGa4TcAg64.png?width=64&height=64" alt="DaVinci Resolve" width="44" height="44">
+          <span class="editors__logo-name">DaVinci</span>
+        </div>
+        <div class="editors__logo">
+          <img src="https://framerusercontent.com/images/hz1qHTpQ4suLQDNa6aYVJL3T8.png?width=66&height=64" alt="Premiere Pro" width="44" height="44">
+          <span class="editors__logo-name">Premiere</span>
+        </div>
+        <div class="editors__logo">
+          <img src="https://framerusercontent.com/images/3IEo8mVaWgaB3s3Aa8ySN17WE.png?width=64&height=64" alt="Filmora" width="44" height="44">
+          <span class="editors__logo-name">Filmora</span>
+        </div>
+        <div class="editors__logo">
+          <img src="https://framerusercontent.com/images/NwH8QLPZPeSCL1f6zd9AaixBDyc.png?width=64&height=64" alt="Final Cut Pro" width="44" height="44">
+          <span class="editors__logo-name">Final Cut</span>
+        </div>
+      </div>
+      <div class="editors__bottom">
+        <div class="editors__perk">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          No plugins needed
+        </div>
+        <div class="editors__perk">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          No After Effects
+        </div>
+        <div class="editors__perk">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          No tutorials required
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why -->
+<section class="why reveal">
+  <div class="container">
+    <div class="why__inner">
+      <div class="why__content">
+        <div class="why__label">Real quick</div>
+        <h2 class="why__title">Why this matters for your channel</h2>
+        <div class="why__text">
+          <p>Viewers decide in seconds if they're going to subscribe or leave. A good CTA animation grabs their attention at <strong>the exact right moment</strong>.</p>
+          <p>A bad one (or none at all) = they forget you right after leaving.</p>
+          <p>These 7 animations are designed to make your audience actually <strong>want to interact</strong> with your content. Not more "please subscribe" &mdash; more like <strong>"damn, this channel is legit."</strong></p>
+        </div>
+      </div>
+      <div class="why__visual">
+        <div class="why__stat-grid">
+          <div class="why__stat">
+            <div class="why__stat-number why__stat-number--cyan">7</div>
+            <div class="why__stat-label">CTA designs included</div>
+          </div>
+          <div class="why__stat">
+            <div class="why__stat-number why__stat-number--pink">2</div>
+            <div class="why__stat-label">formats per animation (MOV + WEBM)</div>
+          </div>
+          <div class="why__stat">
+            <div class="why__stat-number why__stat-number--green">0</div>
+            <div class="why__stat-label">plugins required</div>
+          </div>
+          <div class="why__stat">
+            <div class="why__stat-number why__stat-number--amber">$0</div>
+            <div class="why__stat-label">forever, not a trial</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Download Strip -->
+<section class="dl-strip reveal">
+  <div class="container dl-strip__wrap">
+    <img src="https://framerusercontent.com/images/8jUQn4jmQp8nqmMqrhkpINUcc0.png?scale-down-to=512&width=1362&height=1608" alt="Lio — The Crazy Graphic Guy" class="dl-strip__sticker">
+    <div class="dl-strip__inner">
+      <div class="dl-strip__title">Ready to level up your videos?</div>
+      <div class="dl-strip__sub">One download, yours forever. No strings attached.</div>
+      <a href="https://drops.thecrazygraphicguy.com/download/7qk3p" class="dl-strip__cta">
+        download the free pack
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      </a>
+      <p class="dl-strip__ps">
+        When you drop these in your next video, tag me
+        <a href="https://www.instagram.com/thecrazygraphicguy/" target="_blank" rel="noopener">@thecrazygraphicguy</a>
+        on Instagram or
+        <a href="https://www.youtube.com/channel/UCNuL5lJuMhjbXcwZlQxiRPA" target="_blank" rel="noopener">YouTube</a>.
+        I genuinely want to see your channel with them.
+        Every tag gets a reply. Every. Single. One.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Upsell -->
+<section class="upsell reveal">
+  <div class="container">
+    <div class="upsell__header">
+      <div class="upsell__label">Liked the free pack?</div>
+      <h2 class="upsell__title">Here's 9 more styles for your channel</h2>
+    </div>
+    <div class="upsell__grid stagger-parent">
+      <a href="/products/cta-002" class="upsell-card stagger-item">
+        <div class="upsell-card__img-wrap">
+          <img src="https://framerusercontent.com/images/F0ei7QRE95ODpEfFJgNXdSvM.jpg?width=800&height=600" alt="CTA #002" class="upsell-card__img" loading="lazy" width="800" height="600">
+          <span class="upsell-card__price">$29</span>
+        </div>
+        <div class="upsell-card__body">
+          <div class="upsell-card__number">CTA</div>
+          <div class="upsell-card__name">CTA #002</div>
+          <div class="upsell-card__desc">Good vibes only. Perfect for lifestyle, vlogs, and feel-good channels.</div>
+          <div class="upsell-card__link">
+            View product
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+        </div>
+      </a>
+      <a href="/products/cta-005" class="upsell-card stagger-item">
+        <div class="upsell-card__img-wrap">
+          <img src="https://framerusercontent.com/images/OQO8FROhvC8tNwawLJPWbkNxWac.jpg?width=800&height=600" alt="CTA #005" class="upsell-card__img" loading="lazy" width="800" height="600">
+          <span class="upsell-card__price">$29</span>
+        </div>
+        <div class="upsell-card__body">
+          <div class="upsell-card__number">CTA</div>
+          <div class="upsell-card__name">CTA #005</div>
+          <div class="upsell-card__desc">Heavy-duty energy. For creators who want their CTA to hit hard and stay in the viewer's memory.</div>
+          <div class="upsell-card__link">
+            View product
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+        </div>
+      </a>
+      <a href="/products/cta-006" class="upsell-card stagger-item">
+        <div class="upsell-card__img-wrap">
+          <img src="https://framerusercontent.com/images/RfxUSZu6HoH09upyMuVJJc2p0.jpg?width=800&height=600" alt="CTA #006" class="upsell-card__img" loading="lazy" width="800" height="600">
+          <span class="upsell-card__price">$29</span>
+        </div>
+        <div class="upsell-card__body">
+          <div class="upsell-card__number">CTA</div>
+          <div class="upsell-card__name">CTA #006</div>
+          <div class="upsell-card__desc">Fresh color combo that pops on any video background. Your audience won't ignore this one.</div>
+          <div class="upsell-card__link">
+            View product
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo">
+          <img src="https://framerusercontent.com/images/eng142NeUZhf3lahgIltzclPUVs.png?width=224&height=224" alt="TCGG" class="footer__logo-avatar" width="28" height="28">
+          <img src="https://tools.thecrazygraphicguy.com/channel-score/assets/logo-text.png" alt="The Crazy Graphic Guy" class="footer__logo-text" height="16">
+        </a>
+        <div class="footer__tagline">Built for cool creators who edit their own videos.</div>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <div class="footer__col-title">Shop</div>
+          <a href="/products">YouTube CTAs</a>
+          <a href="/">Stream Overlays</a>
+          <a href="/">Stinger Transitions</a>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Company</div>
+          <a href="/about">Who is TCGG</a>
+          <a href="/wall-of-love">Wall of Creators</a>
+          <a href="/contact">Contact & Help</a>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Tools</div>
+          <a href="https://tools.thecrazygraphicguy.com/channel-score/">Channel Score</a>
+          <a href="https://www.instagram.com/thecrazygraphicguy/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copy">&copy; 2026 The Crazy Graphic Guy. All rights reserved. <a href="/terms-of-service">Terms</a> &middot; <a href="/refund-policy">Refunds</a></div>
+      <div class="footer__humans">Made by humans for humans</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Nav scroll */
+window.addEventListener('scroll', function() {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+/* Hamburger */
+document.getElementById('hamburger').addEventListener('click', function() {
+  var menu = document.getElementById('mobileMenu');
+  var nav = document.getElementById('nav');
+  menu.classList.toggle('open');
+  nav.classList.toggle('menu-open');
+  var spans = this.querySelectorAll('span');
+  if (menu.classList.contains('open')) {
+    spans[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
+  } else {
+    spans[0].style.transform = 'none';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'none';
+  }
+});
+
+/* Reveal */
+var revealObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(function(el) { revealObserver.observe(el); });
+
+/* Stagger */
+var staggerObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      var items = entry.target.querySelectorAll('.stagger-item');
+      items.forEach(function(item, i) {
+        setTimeout(function() { item.classList.add('visible'); }, i * 80);
+      });
+      staggerObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.stagger-parent').forEach(function(el) { staggerObserver.observe(el); });
+</script>
+</body>
+</html>
