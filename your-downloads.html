@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Re-download your files - The Crazy Graphic Guy 😎</title>
+<meta name="description" content="Access your purchased files again with your email and order code.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=TASA+Orbiter:wght@400..800&family=DM+Sans:wght@200;300;400;500&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-deep: #07080f;
+  --bg-card: rgba(14, 16, 36, 0.85);
+  --bg-card-solid: #0e1024;
+  --bg-elevated: #172528;
+  --accent: #00e5ff;
+  --accent-dim: rgba(0, 229, 255, 0.15);
+  --accent-glow: rgba(0, 229, 255, 0.3);
+  --neon-cyan: #00e5ff;
+  --neon-pink: #ff2d6b;
+  --neon-green: #00ff88;
+  --neon-amber: #ffa726;
+  --neon-purple: #b44dff;
+  --text-primary: #e8e8f0;
+  --text-body: #999999;
+  --text-dim: #5a5a5a;
+  --border-subtle: rgba(0, 229, 255, 0.1);
+  --border-glow: rgba(0, 229, 255, 0.3);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --container: 1140px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  background: var(--bg-deep);
+  color: var(--text-body);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === BACKGROUND EFFECTS === */
+.bg-grid {
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none; z-index: 0;
+}
+.bg-glow {
+  position: fixed;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  filter: blur(160px);
+  pointer-events: none; z-index: 0;
+}
+.bg-glow--cyan { background: var(--accent); top: -200px; right: -200px; opacity: 0.10; }
+.bg-glow--pink { background: var(--neon-pink); bottom: -300px; left: -200px; opacity: 0.05; }
+
+/* === CONTAINER === */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* === NAV === */
+.nav {
+  position: sticky;
+  top: 0; z-index: 100;
+  padding: 12px 1.5rem 0;
+}
+.nav.scrolled .nav__bar {
+  box-shadow: 0 4px 30px rgba(0, 229, 255, 0.06);
+}
+.nav__bar {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: var(--container);
+  margin: 0 auto;
+  background: rgba(14, 16, 36, 0.85);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 10px 20px;
+  transition: box-shadow 0.3s ease, border-radius 0.3s ease;
+}
+.nav__logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.nav__avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+}
+.nav__wordmark {
+  height: 18px; opacity: 0.9;
+}
+.nav__links {
+  display: flex; align-items: center; gap: 24px;
+}
+.nav__links a {
+  font-size: 13px; font-weight: 400;
+  color: var(--text-body); text-decoration: none;
+  transition: color 0.2s;
+}
+.nav__links a:hover { color: var(--text-primary); }
+.nav__cta {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px; font-weight: 500;
+  color: var(--bg-deep) !important;
+  background: var(--accent);
+  padding: 7px 14px;
+  border-radius: 20px;
+  transition: opacity 0.2s, color 0.2s !important;
+}
+.nav__cta:hover { opacity: 0.85; }
+.nav__hamburger {
+  display: none;
+  flex-direction: column; gap: 4px;
+  background: none; border: none; cursor: pointer;
+  padding: 4px;
+}
+.nav__hamburger span {
+  display: block; width: 18px; height: 1.5px;
+  background: var(--text-body);
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav__mobile-menu {
+  display: none;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+/* === MAIN CONTENT === */
+.access {
+  position: relative; z-index: 1;
+  min-height: 60dvh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 120px 0 80px;
+}
+.access__card {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 48px 40px;
+  text-align: center;
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+
+/* Icon */
+.access__icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+/* Headings */
+.access__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.access__subtitle {
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+/* Form */
+.access__field {
+  margin-bottom: 16px;
+  text-align: left;
+}
+.access__label {
+  display: block;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.access__input {
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-primary);
+  background: rgba(7, 8, 15, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.access__input::placeholder {
+  color: var(--text-dim);
+  font-weight: 300;
+}
+.access__input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+.access__input.error {
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 0 3px rgba(255, 45, 107, 0.15);
+}
+
+/* Submit button */
+.access__btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px; font-weight: 600;
+  color: var(--bg-deep);
+  background: var(--neon-pink);
+  border: none; border-radius: var(--radius);
+  padding: 18px 36px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 8px;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, opacity 0.3s ease;
+  box-shadow: 0 4px 24px rgba(255, 45, 107, 0.25);
+}
+.access__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(255, 45, 107, 0.35);
+}
+.access__btn:active { transform: translateY(0); }
+.access__btn:focus-visible {
+  outline: 2px solid var(--neon-pink);
+  outline-offset: 3px;
+}
+.access__btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+  transform: none;
+}
+.access__btn svg {
+  width: 20px; height: 20px;
+  flex-shrink: 0;
+}
+
+/* Feedback messages */
+.access__feedback {
+  margin-top: 16px;
+  font-size: 13px;
+  line-height: 1.5;
+  min-height: 20px;
+}
+.access__feedback.error {
+  color: var(--neon-pink);
+}
+.access__feedback.success {
+  color: var(--neon-green);
+}
+
+/* Helper text */
+.access__helper {
+  margin-top: 24px;
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+/* Divider */
+.access__divider {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 28px 0;
+}
+
+/* Bottom note */
+.access__note {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+.access__note a {
+  color: var(--text-body);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.access__note a:hover { color: var(--text-primary); }
+.access__sig {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+/* === FOOTER === */
+footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 48px 0 32px;
+}
+.footer__top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px;
+  margin-bottom: 32px;
+}
+.footer__brand-logo {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 16px;
+}
+.footer__brand-logo img:first-child { width: 32px; height: 32px; border-radius: 50%; }
+.footer__brand-logo img:last-child { height: 16px; opacity: 0.7; }
+.footer__tagline {
+  font-size: 13px; color: var(--text-dim);
+  line-height: 1.6; max-width: 320px;
+  font-weight: 300;
+}
+.footer__tagline strong {
+  display: block;
+  color: var(--text-body);
+  font-weight: 400;
+  margin-top: 8px;
+}
+.footer__links {
+  display: flex; gap: 48px;
+  justify-content: flex-end;
+}
+.footer__col h4 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px; font-weight: 700;
+  color: var(--text-dim);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.footer__col a {
+  display: block; font-size: 13px;
+  color: var(--text-body); text-decoration: none;
+  padding: 4px 0; transition: color 0.2s; font-weight: 400;
+}
+.footer__col a:hover { color: var(--text-primary); }
+.footer__bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+.footer__copy { font-size: 12px; color: var(--text-dim); font-weight: 300; }
+.footer__copy a { color: var(--text-dim); text-decoration: none; }
+.footer__copy a:hover { color: var(--text-body); }
+.footer__humans { font-size: 12px; color: var(--text-dim); font-weight: 400; }
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .nav__links { display: none; }
+  .nav__hamburger { display: flex; }
+  .nav { padding: 8px 1rem 0; }
+  .nav.menu-open .nav__bar {
+    border-radius: 14px 14px 0 0;
+    border-bottom-color: transparent;
+  }
+  .nav__mobile-menu.open {
+    display: flex; flex-direction: column; gap: 16px;
+    background: rgba(14, 16, 36, 0.95);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle); border-top: none;
+    border-radius: 0 0 14px 14px;
+    padding: 20px 24px; margin-top: -1px;
+  }
+  .nav__mobile-menu a {
+    font-size: 14px; color: var(--text-body);
+    text-decoration: none; padding: 8px 0; transition: color 0.2s;
+  }
+  .nav__mobile-menu a:hover { color: var(--text-primary); }
+  .access { padding: 100px 0 60px; }
+  .access__card { padding: 36px 24px; }
+  .access__title { font-size: 20px; }
+  .footer__top { grid-template-columns: 1fr; gap: 32px; }
+  .footer__links { gap: 24px; justify-content: flex-start; }
+  .footer__bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+@media (max-width: 480px) {
+  .footer__links { flex-direction: column; gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow--cyan"></div>
+<div class="bg-glow bg-glow--pink"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav__bar">
+    <a href="/" class="nav__logo">
+      <img src="https://framerusercontent.com/images/eng142NeUZhf3lahgIltzclPUVs.png?width=64&height=64" alt="TCGG" class="nav__avatar" width="32" height="32">
+      <img src="https://framerusercontent.com/images/QwXNuaeuuNrueqrUOfLtZdEkYk.svg?width=419&height=43" alt="The Crazy Graphic Guy" class="nav__wordmark" height="18">
+    </a>
+    <div class="nav__links">
+      <a href="/">YouTube Assets</a>
+      <a href="/about">Who is TCGG</a>
+      <a href="/contact">Contact & Help</a>
+      <a href="/wall-of-love">Wall of Creators</a>
+      <a href="https://tools.thecrazygraphicguy.com/channel-score/" class="nav__cta">Find Your Channel Score</a>
+    </div>
+    <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__mobile-menu" id="mobileMenu">
+    <a href="/">YouTube Assets</a>
+    <a href="/about">Who is TCGG</a>
+    <a href="/contact">Contact & Help</a>
+    <a href="/wall-of-love">Wall of Creators</a>
+    <a href="https://tools.thecrazygraphicguy.com/channel-score/">Find Your Channel Score</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="access">
+  <div class="container">
+    <div class="access__card">
+
+      <div class="access__icon">📦</div>
+      <h1 class="access__title">Your pack. Unlimited re-downloads.</h1>
+      <p class="access__subtitle">Access your files again with your email + order code.</p>
+
+      <div class="access__field">
+        <label class="access__label" for="orderCode">Your order code</label>
+        <input class="access__input" type="text" id="orderCode" placeholder="TCGG-XXXXXX" autocomplete="off" spellcheck="false">
+      </div>
+
+      <div class="access__field">
+        <label class="access__label" for="email">Email used at checkout</label>
+        <input class="access__input" type="email" id="email" placeholder="you@email.com" autocomplete="email">
+      </div>
+
+      <button class="access__btn" id="submitBtn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Access my files
+      </button>
+
+      <div class="access__feedback" id="feedback"></div>
+
+      <p class="access__helper">This will verify your order and then start the download.</p>
+
+      <hr class="access__divider">
+
+      <p class="access__note">If anything's weird DM me on <a href="https://x.com/CrazyGraphicGuy" target="_blank" rel="noopener">X</a>.</p>
+      <p class="access__sig">— The Crazy Graphic Guy 😎</p>
+
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="footer__brand-logo">
+          <img src="https://framerusercontent.com/images/eng142NeUZhf3lahgIltzclPUVs.png?width=64&height=64" alt="TCGG" width="32" height="32">
+          <img src="https://framerusercontent.com/images/QwXNuaeuuNrueqrUOfLtZdEkYk.svg?width=419&height=43" alt="The Crazy Graphic Guy" height="16">
+        </div>
+        <p class="footer__tagline">Your channel deserves to look fire 🔥<br>making YouTube assets that should've existed by now &bull; built for cool creators who edit their own videos &bull; you're not small. you're early<strong>drop it in &rarr; look pro &rarr; grow faster</strong></p>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <h4>Shop</h4>
+          <a href="/">YouTube CTAs</a>
+          <a href="/">All Products</a>
+        </div>
+        <div class="footer__col">
+          <h4>Company</h4>
+          <a href="/about">Who is TCGG</a>
+          <a href="/contact">Contact & Help</a>
+          <a href="/wall-of-love">Wall of Creators</a>
+        </div>
+        <div class="footer__col">
+          <h4>Tools</h4>
+          <a href="https://tools.thecrazygraphicguy.com/channel-score/">Channel Score</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copy">Copyright &copy; 2026 The Crazy Graphic Guy &middot; All rights reserved. <a href="/terms-of-service">Terms</a> &middot; <a href="/refund-policy">Refunds</a></div>
+      <div class="footer__humans">Made by humans for humans</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* === NAV === */
+window.addEventListener('scroll', function() {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+document.getElementById('hamburger').addEventListener('click', function() {
+  var menu = document.getElementById('mobileMenu');
+  var nav = document.getElementById('nav');
+  menu.classList.toggle('open');
+  nav.classList.toggle('menu-open');
+  var spans = this.querySelectorAll('span');
+  if (menu.classList.contains('open')) {
+    spans[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
+  } else {
+    spans[0].style.transform = 'none';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'none';
+  }
+});
+
+/* === RE-DOWNLOAD LOGIC === */
+var WORKER = 'https://download.thecrazygraphicguy.com';
+
+var orderCodeInput = document.getElementById('orderCode');
+var emailInput     = document.getElementById('email');
+var submitBtn      = document.getElementById('submitBtn');
+var feedback       = document.getElementById('feedback');
+
+/* Error messages mapped from Worker responses */
+var ERROR_MESSAGES = {
+  'Missing email': 'Please enter your email.',
+  'Missing session_id or order_code': 'Please enter your order code.',
+  'Payment not completed': 'This order hasn\'t been paid yet. If you just purchased, wait a moment and try again.',
+  'No email found for this order': 'We couldn\'t find an email linked to this order. DM me on X for help.',
+  'Email does not match this order': 'That email doesn\'t match this order. Use the same email you used at checkout.',
+  'This order has no downloadable item': 'This order is for a custom commission — there are no files to download.'
+};
+
+function showFeedback(msg, type) {
+  feedback.textContent = msg;
+  feedback.className = 'access__feedback ' + type;
+}
+
+function clearFeedback() {
+  feedback.textContent = '';
+  feedback.className = 'access__feedback';
+}
+
+function setLoading(loading) {
+  submitBtn.disabled = loading;
+  if (loading) {
+    submitBtn.innerHTML = '<span class="spinner" style="width:20px;height:20px;margin:0;border-width:2px;"></span> Verifying...';
+  } else {
+    submitBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;flex-shrink:0"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Access my files';
+  }
+}
+
+/* Clear error styling on input */
+orderCodeInput.addEventListener('input', function() {
+  this.classList.remove('error');
+  clearFeedback();
+});
+emailInput.addEventListener('input', function() {
+  this.classList.remove('error');
+  clearFeedback();
+});
+
+/* Submit on Enter */
+orderCodeInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') { e.preventDefault(); emailInput.focus(); }
+});
+emailInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') { e.preventDefault(); handleSubmit(); }
+});
+
+submitBtn.addEventListener('click', handleSubmit);
+
+/* Pre-fill order code from URL if present (e.g. /your-downloads?order_code=TCGG-XXXXXX) */
+var presetCode = new URLSearchParams(window.location.search).get('order_code');
+if (presetCode) {
+  orderCodeInput.value = presetCode.trim().toUpperCase();
+  emailInput.focus();
+}
+
+async function handleSubmit() {
+  var code  = orderCodeInput.value.trim().toUpperCase();
+  var email = emailInput.value.trim();
+
+  /* Update input to show uppercase */
+  orderCodeInput.value = code;
+
+  /* Client-side validation */
+  orderCodeInput.classList.remove('error');
+  emailInput.classList.remove('error');
+  clearFeedback();
+
+  if (!code) {
+    orderCodeInput.classList.add('error');
+    orderCodeInput.focus();
+    showFeedback('Enter your order code (check your confirmation email).', 'error');
+    return;
+  }
+  if (!code.startsWith('TCGG-')) {
+    orderCodeInput.classList.add('error');
+    orderCodeInput.focus();
+    showFeedback('Order code should look like TCGG-XXXXXX.', 'error');
+    return;
+  }
+  if (!email) {
+    emailInput.classList.add('error');
+    emailInput.focus();
+    showFeedback('Enter the email you used at checkout.', 'error');
+    return;
+  }
+  if (!email.includes('@') || !email.includes('.')) {
+    emailInput.classList.add('error');
+    emailInput.focus();
+    showFeedback('That doesn\'t look like a valid email.', 'error');
+    return;
+  }
+
+  var redeemUrl = WORKER + '/portal-redeem?order_code=' + encodeURIComponent(code) + '&email=' + encodeURIComponent(email);
+
+  setLoading(true);
+
+  try {
+    /* Pre-flight check: try fetching with redirect: manual to catch errors without navigating away */
+    var res = await fetch(redeemUrl, { redirect: 'manual' });
+
+    if (res.type === 'opaqueredirect' || res.status === 303 || res.status === 302) {
+      /* Success — Worker wants to redirect to /dl/token */
+      showFeedback('Order verified! Starting download...', 'success');
+      /* Navigate so the browser follows the redirect and triggers the file download */
+      window.location.href = redeemUrl;
+      return;
+    }
+
+    /* Error response — read the message */
+    var errorText = await res.text();
+    var friendlyMsg = ERROR_MESSAGES[errorText] || 'Something went wrong. Try again or DM me on X.';
+
+    if (errorText === 'Email does not match this order') {
+      emailInput.classList.add('error');
+    } else if (errorText.includes('order_code') || errorText.includes('session_id')) {
+      orderCodeInput.classList.add('error');
+    }
+
+    showFeedback(friendlyMsg, 'error');
+    setLoading(false);
+
+  } catch (err) {
+    /* Network error or CORS issue — fall back to direct navigation */
+    showFeedback('Verifying your order...', 'success');
+    window.location.href = redeemUrl;
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your modification order - The Crazy Graphic Guy 😎</title>
+<meta name="description" content="Fill out this form to start your custom order.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=TASA+Orbiter:wght@400..800&family=DM+Sans:wght@200;300;400;500&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-deep: #07080f;
+  --bg-card: rgba(14, 16, 36, 0.85);
+  --bg-card-solid: #0e1024;
+  --bg-elevated: #172528;
+  --accent: #00e5ff;
+  --accent-dim: rgba(0, 229, 255, 0.15);
+  --accent-glow: rgba(0, 229, 255, 0.3);
+  --neon-cyan: #00e5ff;
+  --neon-pink: #ff2d6b;
+  --neon-green: #00ff88;
+  --neon-amber: #ffa726;
+  --neon-purple: #b44dff;
+  --text-primary: #e8e8f0;
+  --text-body: #999999;
+  --text-dim: #5a5a5a;
+  --border-subtle: rgba(0, 229, 255, 0.1);
+  --border-glow: rgba(0, 229, 255, 0.3);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --container: 1140px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  background: var(--bg-deep);
+  color: var(--text-body);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === BACKGROUND EFFECTS === */
+.bg-grid {
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none; z-index: 0;
+}
+.bg-glow {
+  position: fixed;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  filter: blur(160px);
+  pointer-events: none; z-index: 0;
+}
+.bg-glow--cyan { background: var(--accent); top: -200px; right: -200px; opacity: 0.10; }
+.bg-glow--pink { background: var(--neon-pink); bottom: -300px; left: -200px; opacity: 0.05; }
+
+/* === CONTAINER === */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* === NAV === */
+.nav {
+  position: sticky;
+  top: 0; z-index: 100;
+  padding: 12px 1.5rem 0;
+}
+.nav.scrolled .nav__bar {
+  box-shadow: 0 4px 30px rgba(0, 229, 255, 0.06);
+}
+.nav__bar {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: var(--container);
+  margin: 0 auto;
+  background: rgba(14, 16, 36, 0.85);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 10px 20px;
+  transition: box-shadow 0.3s ease, border-radius 0.3s ease;
+}
+.nav__logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.nav__avatar { width: 32px; height: 32px; border-radius: 50%; }
+.nav__wordmark { height: 18px; opacity: 0.9; }
+.nav__links { display: flex; align-items: center; gap: 24px; }
+.nav__links a {
+  font-size: 13px; font-weight: 400;
+  color: var(--text-body); text-decoration: none;
+  transition: color 0.2s;
+}
+.nav__links a:hover { color: var(--text-primary); }
+.nav__cta {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px; font-weight: 500;
+  color: var(--bg-deep) !important;
+  background: var(--accent);
+  padding: 7px 14px; border-radius: 20px;
+  transition: opacity 0.2s, color 0.2s !important;
+}
+.nav__cta:hover { opacity: 0.85; }
+.nav__hamburger {
+  display: none;
+  flex-direction: column; gap: 4px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.nav__hamburger span {
+  display: block; width: 18px; height: 1.5px;
+  background: var(--text-body);
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav__mobile-menu {
+  display: none;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+/* === ONBOARDING === */
+.onboarding {
+  position: relative; z-index: 1;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 120px 0 80px;
+  min-height: 70dvh;
+}
+.onboarding__card {
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 48px 40px;
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+
+/* Progress bar */
+.progress {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.progress__fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.step-count {
+  font-size: 12px;
+  color: var(--text-dim);
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+/* Step content */
+.step { display: none; }
+.step.active { display: block; }
+
+.step__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+.step__desc {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-bottom: 32px;
+}
+
+/* Fields */
+.field {
+  margin-bottom: 20px;
+}
+.field__label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-body);
+  margin-bottom: 8px;
+}
+.field__required {
+  color: var(--neon-pink);
+  margin-left: 2px;
+}
+.field__input {
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-primary);
+  background: rgba(7, 8, 15, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.field__input::placeholder { color: var(--text-dim); font-weight: 300; }
+.field__input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+.field__input.error {
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 0 3px rgba(255, 45, 107, 0.15);
+}
+.field__hint {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 6px;
+}
+
+/* Checkboxes */
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(7, 8, 15, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.checkbox-item:hover {
+  border-color: rgba(0, 229, 255, 0.2);
+}
+.checkbox-item.checked {
+  border-color: var(--accent);
+  background: rgba(0, 229, 255, 0.05);
+}
+.checkbox-item input[type="checkbox"] {
+  appearance: none; -webkit-appearance: none;
+  width: 20px; height: 20px;
+  border: 2px solid var(--text-dim);
+  border-radius: 4px;
+  flex-shrink: 0;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.2s, background 0.2s;
+}
+.checkbox-item.checked input[type="checkbox"] {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+.checkbox-item.checked input[type="checkbox"]::after {
+  content: '';
+  position: absolute;
+  left: 5px; top: 2px;
+  width: 6px; height: 10px;
+  border: solid var(--bg-deep);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.checkbox-item span {
+  font-size: 15px;
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
+/* Conditional sections */
+.conditional { display: none; }
+.conditional.visible { display: block; }
+
+/* Review */
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.review-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.review-row:last-child { border-bottom: none; padding-bottom: 0; }
+.review-label {
+  font-size: 13px;
+  color: var(--text-dim);
+  flex-shrink: 0;
+}
+.review-value {
+  font-size: 14px;
+  color: var(--text-primary);
+  font-weight: 400;
+  text-align: right;
+  word-break: break-word;
+}
+
+/* Navigation */
+.step-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 36px;
+}
+.btn-back {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-body);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 0;
+  transition: color 0.2s;
+}
+.btn-back:hover { color: var(--text-primary); }
+.btn-back.hidden { visibility: hidden; }
+
+.btn-next {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--bg-deep);
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 12px 28px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(0, 229, 255, 0.2);
+}
+.btn-next:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 229, 255, 0.3);
+}
+.btn-next:active { transform: translateY(0); }
+.btn-next:disabled {
+  opacity: 0.5;
+  cursor: default;
+  transform: none;
+}
+.btn-next:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Submit button variant */
+.btn-submit {
+  background: var(--neon-pink);
+  box-shadow: 0 4px 16px rgba(255, 45, 107, 0.25);
+}
+.btn-submit:hover {
+  box-shadow: 0 6px 20px rgba(255, 45, 107, 0.35);
+}
+.btn-submit:focus-visible {
+  outline-color: var(--neon-pink);
+}
+
+/* Error feedback */
+.form-error {
+  font-size: 13px;
+  color: var(--neon-pink);
+  margin-top: 8px;
+  min-height: 20px;
+}
+
+/* Success state */
+.success-state { display: none; text-align: center; }
+.success-state.active { display: block; }
+.success-icon { font-size: 48px; margin-bottom: 20px; line-height: 1; }
+.success-title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-weight: 700; font-size: 24px;
+  color: var(--text-primary); margin-bottom: 12px;
+}
+.success-text {
+  font-size: 15px; color: var(--text-body);
+  line-height: 1.6; margin-bottom: 24px;
+}
+.success-note { font-size: 13px; color: var(--text-dim); }
+.success-note a { color: var(--text-body); text-decoration: none; }
+.success-sig {
+  margin-top: 12px; font-size: 13px;
+  color: var(--text-dim); font-style: italic;
+}
+
+/* Spinner */
+.spinner {
+  display: inline-block;
+  width: 18px; height: 18px;
+  border: 2px solid rgba(7, 8, 15, 0.3);
+  border-top-color: var(--bg-deep);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* === FOOTER === */
+footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 48px 0 32px;
+}
+.footer__top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px; margin-bottom: 32px;
+}
+.footer__brand-logo {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 16px;
+}
+.footer__brand-logo img:first-child { width: 32px; height: 32px; border-radius: 50%; }
+.footer__brand-logo img:last-child { height: 16px; opacity: 0.7; }
+.footer__tagline {
+  font-size: 13px; color: var(--text-dim);
+  line-height: 1.6; max-width: 320px; font-weight: 300;
+}
+.footer__tagline strong {
+  display: block; color: var(--text-body);
+  font-weight: 400; margin-top: 8px;
+}
+.footer__links { display: flex; gap: 48px; justify-content: flex-end; }
+.footer__col h4 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px; font-weight: 700;
+  color: var(--text-dim); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 14px;
+}
+.footer__col a {
+  display: block; font-size: 13px;
+  color: var(--text-body); text-decoration: none;
+  padding: 4px 0; transition: color 0.2s; font-weight: 400;
+}
+.footer__col a:hover { color: var(--text-primary); }
+.footer__bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+.footer__copy { font-size: 12px; color: var(--text-dim); font-weight: 300; }
+.footer__copy a { color: var(--text-dim); text-decoration: none; }
+.footer__copy a:hover { color: var(--text-body); }
+.footer__humans { font-size: 12px; color: var(--text-dim); font-weight: 400; }
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .nav__links { display: none; }
+  .nav__hamburger { display: flex; }
+  .nav { padding: 8px 1rem 0; }
+  .nav.menu-open .nav__bar {
+    border-radius: 14px 14px 0 0;
+    border-bottom-color: transparent;
+  }
+  .nav__mobile-menu.open {
+    display: flex; flex-direction: column; gap: 16px;
+    background: rgba(14, 16, 36, 0.95);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle); border-top: none;
+    border-radius: 0 0 14px 14px;
+    padding: 20px 24px; margin-top: -1px;
+  }
+  .nav__mobile-menu a {
+    font-size: 14px; color: var(--text-body);
+    text-decoration: none; padding: 8px 0; transition: color 0.2s;
+  }
+  .nav__mobile-menu a:hover { color: var(--text-primary); }
+  .onboarding { padding: 100px 0 60px; }
+  .onboarding__card { padding: 36px 24px; }
+  .step__title { font-size: 20px; }
+  .footer__top { grid-template-columns: 1fr; gap: 32px; }
+  .footer__links { gap: 24px; justify-content: flex-start; }
+  .footer__bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+@media (max-width: 480px) {
+  .footer__links { flex-direction: column; gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow--cyan"></div>
+<div class="bg-glow bg-glow--pink"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav__bar">
+    <a href="/" class="nav__logo">
+      <img src="https://framerusercontent.com/images/eng142NeUZhf3lahgIltzclPUVs.png?width=64&height=64" alt="TCGG" class="nav__avatar" width="32" height="32">
+      <img src="https://framerusercontent.com/images/QwXNuaeuuNrueqrUOfLtZdEkYk.svg?width=419&height=43" alt="The Crazy Graphic Guy" class="nav__wordmark" height="18">
+    </a>
+    <div class="nav__links">
+      <a href="/">YouTube Assets</a>
+      <a href="/about">Who is TCGG</a>
+      <a href="/contact">Contact & Help</a>
+      <a href="/wall-of-love">Wall of Creators</a>
+      <a href="https://tools.thecrazygraphicguy.com/channel-score/" class="nav__cta">Find Your Channel Score</a>
+    </div>
+    <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__mobile-menu" id="mobileMenu">
+    <a href="/">YouTube Assets</a>
+    <a href="/about">Who is TCGG</a>
+    <a href="/contact">Contact & Help</a>
+    <a href="/wall-of-love">Wall of Creators</a>
+    <a href="https://tools.thecrazygraphicguy.com/channel-score/">Find Your Channel Score</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="onboarding">
+  <div class="container">
+    <div class="onboarding__card">
+
+      <!-- Progress -->
+      <div class="progress"><div class="progress__fill" id="progressFill" style="width: 20%"></div></div>
+      <div class="step-count" id="stepCount">Step 1 of 5</div>
+
+      <!-- STEP 1: Contact -->
+      <div class="step active" id="step1">
+        <h2 class="step__title">Let's do this! 😎</h2>
+        <p class="step__desc">Fill out this form to start your order</p>
+
+        <div class="field">
+          <label class="field__label" for="f_name">Hey — what's your name?<span class="field__required">*</span></label>
+          <input class="field__input" type="text" id="f_name" placeholder="Your name" autocomplete="name">
+        </div>
+        <div class="field">
+          <label class="field__label" for="f_email">What email did you use for your order?<span class="field__required">*</span></label>
+          <input class="field__input" type="email" id="f_email" placeholder="you@email.com" autocomplete="email">
+        </div>
+        <div class="field">
+          <label class="field__label" for="f_order">What's your order number?<span class="field__required">*</span></label>
+          <input class="field__input" type="text" id="f_order" placeholder="TCGG-XXXXXX" autocomplete="off">
+        </div>
+        <div class="form-error" id="err1"></div>
+
+        <div class="step-nav">
+          <button class="btn-back hidden" type="button">Back</button>
+          <button class="btn-next" type="button" onclick="goTo(2)">Continue</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: What to customize -->
+      <div class="step" id="step2">
+        <h2 class="step__title">Project Design</h2>
+        <p class="step__desc">Info I'm going to use to customize your assets</p>
+
+        <div class="field">
+          <label class="field__label">What would you like to customize?<span class="field__required">*</span></label>
+          <div class="checkbox-group">
+            <label class="checkbox-item" id="chk_color_item">
+              <input type="checkbox" id="chk_color" value="Color">
+              <span>Color</span>
+            </label>
+            <label class="checkbox-item" id="chk_material_item">
+              <input type="checkbox" id="chk_material" value="Material">
+              <span>Material</span>
+            </label>
+          </div>
+        </div>
+        <div class="form-error" id="err2"></div>
+
+        <div class="step-nav">
+          <button class="btn-back" type="button" onclick="goTo(1)">Back</button>
+          <button class="btn-next" type="button" onclick="goTo(3)">Continue</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Color & Material details -->
+      <div class="step" id="step3">
+        <h2 class="step__title">Color | Material to Use</h2>
+        <p class="step__desc"></p>
+
+        <!-- Color section (conditional) -->
+        <div class="conditional" id="sec_color">
+          <div class="field">
+            <label class="field__label" for="f_hex">HEX color code (if you have it)</label>
+            <input class="field__input" type="text" id="f_hex" placeholder="You can paste HEX codes like: #FF3B30, #111111, #FFFFFF">
+          </div>
+        </div>
+
+        <!-- Material section (conditional) -->
+        <div class="conditional" id="sec_material">
+          <div class="field">
+            <label class="field__label">Material | Finish</label>
+            <div class="checkbox-group">
+              <label class="checkbox-item"><input type="checkbox" value="Matte" class="mat-chk"><span>Matte</span></label>
+              <label class="checkbox-item"><input type="checkbox" value="Glossy" class="mat-chk"><span>Glossy</span></label>
+              <label class="checkbox-item"><input type="checkbox" value="Metallic" class="mat-chk"><span>Metallic</span></label>
+              <label class="checkbox-item"><input type="checkbox" value="Chrome" class="mat-chk"><span>Chrome</span></label>
+              <label class="checkbox-item"><input type="checkbox" value="Neon / glow" class="mat-chk"><span>Neon / glow</span></label>
+              <label class="checkbox-item"><input type="checkbox" value="Carbon fiber" class="mat-chk"><span>Carbon fiber</span></label>
+            </div>
+            <p class="field__hint">Pick 1 – 2, or none and use the field below.</p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="f_other_mat">Other material</label>
+            <input class="field__input" type="text" id="f_other_mat" placeholder="Examples: gold, chrome, glass, neon, matte black...">
+          </div>
+        </div>
+
+        <div class="form-error" id="err3"></div>
+
+        <div class="step-nav">
+          <button class="btn-back" type="button" onclick="goTo(2)">Back</button>
+          <button class="btn-next" type="button" onclick="goTo(4)">Continue</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: Channel link -->
+      <div class="step" id="step4">
+        <h2 class="step__title">Drop me a link</h2>
+        <p class="step__desc">If everything before fails...</p>
+
+        <div class="field">
+          <label class="field__label" for="f_channel">Channel Link</label>
+          <input class="field__input" type="url" id="f_channel" placeholder="Share a link to where you'll use this animation (so I can match the vibe).">
+        </div>
+        <div class="form-error" id="err4"></div>
+
+        <div class="step-nav">
+          <button class="btn-back" type="button" onclick="goTo(3)">Back</button>
+          <button class="btn-next" type="button" onclick="goTo(5)">Continue</button>
+        </div>
+      </div>
+
+      <!-- STEP 5: Review & Submit -->
+      <div class="step" id="step5">
+        <h2 class="step__title">Review & Submit</h2>
+        <p class="step__desc">Give it a quick look over, then hit send 🙌</p>
+
+        <div class="review-list" id="reviewList"></div>
+
+        <div class="form-error" id="err5"></div>
+
+        <div class="step-nav">
+          <button class="btn-back" type="button" onclick="goTo(4)">Back</button>
+          <button class="btn-next btn-submit" type="button" id="submitBtn" onclick="submitForm()">Submit</button>
+        </div>
+      </div>
+
+      <!-- SUCCESS STATE -->
+      <div class="success-state" id="successState">
+        <div class="success-icon">🎉</div>
+        <h2 class="success-title">Thank you for choosing my work.</h2>
+        <p class="success-text">Your custom order details have been received. I'll get started and reach out if I need anything.</p>
+        <hr style="border:none;border-top:1px solid var(--border-subtle);margin:24px 0;">
+        <p class="success-note">Questions? DM me on <a href="https://x.com/CrazyGraphicGuy" target="_blank" rel="noopener">X</a>.</p>
+        <p class="success-sig">— The Crazy Graphic Guy 😎</p>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="footer__brand-logo">
+          <img src="https://framerusercontent.com/images/eng142NeUZhf3lahgIltzclPUVs.png?width=64&height=64" alt="TCGG" width="32" height="32">
+          <img src="https://framerusercontent.com/images/QwXNuaeuuNrueqrUOfLtZdEkYk.svg?width=419&height=43" alt="The Crazy Graphic Guy" height="16">
+        </div>
+        <p class="footer__tagline">Your channel deserves to look fire 🔥<br>making YouTube assets that should've existed by now &bull; built for cool creators who edit their own videos &bull; you're not small. you're early<strong>drop it in &rarr; look pro &rarr; grow faster</strong></p>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <h4>Shop</h4>
+          <a href="/">YouTube CTAs</a>
+          <a href="/">All Products</a>
+        </div>
+        <div class="footer__col">
+          <h4>Company</h4>
+          <a href="/about">Who is TCGG</a>
+          <a href="/contact">Contact & Help</a>
+          <a href="/wall-of-love">Wall of Creators</a>
+        </div>
+        <div class="footer__col">
+          <h4>Tools</h4>
+          <a href="https://tools.thecrazygraphicguy.com/channel-score/">Channel Score</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copy">Copyright &copy; 2026 The Crazy Graphic Guy &middot; All rights reserved. <a href="/terms-of-service">Terms</a> &middot; <a href="/refund-policy">Refunds</a></div>
+      <div class="footer__humans">Made by humans for humans</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* === NAV === */
+window.addEventListener('scroll', function() {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+document.getElementById('hamburger').addEventListener('click', function() {
+  var menu = document.getElementById('mobileMenu');
+  var nav = document.getElementById('nav');
+  menu.classList.toggle('open');
+  nav.classList.toggle('menu-open');
+  var spans = this.querySelectorAll('span');
+  if (menu.classList.contains('open')) {
+    spans[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
+  } else {
+    spans[0].style.transform = 'none';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'none';
+  }
+});
+
+/* === CHECKBOX TOGGLE STYLING === */
+document.querySelectorAll('.checkbox-item input[type="checkbox"]').forEach(function(chk) {
+  chk.addEventListener('change', function() {
+    this.closest('.checkbox-item').classList.toggle('checked', this.checked);
+  });
+});
+
+/* === FORM LOGIC === */
+var WEBHOOK = 'https://hook.eu1.make.com/49rhbisxeoauci9w75xl4wrso7fcn4hj';
+var currentStep = 1;
+var totalSteps = 5;
+
+function goTo(step) {
+  /* Validate before advancing */
+  if (step > currentStep && !validate(currentStep)) return;
+
+  /* Handle step 3 conditionals */
+  if (step === 3) {
+    var wantsColor = document.getElementById('chk_color').checked;
+    var wantsMaterial = document.getElementById('chk_material').checked;
+    document.getElementById('sec_color').classList.toggle('visible', wantsColor);
+    document.getElementById('sec_material').classList.toggle('visible', wantsMaterial);
+  }
+
+  /* Build review on step 5 */
+  if (step === 5) buildReview();
+
+  /* Switch steps */
+  document.getElementById('step' + currentStep).classList.remove('active');
+  document.getElementById('step' + step).classList.add('active');
+  currentStep = step;
+
+  /* Update progress */
+  document.getElementById('progressFill').style.width = (step / totalSteps * 100) + '%';
+  document.getElementById('stepCount').textContent = 'Step ' + step + ' of ' + totalSteps;
+
+  /* Scroll to top of card */
+  document.querySelector('.onboarding__card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function validate(step) {
+  clearErrors();
+
+  if (step === 1) {
+    var name = document.getElementById('f_name').value.trim();
+    var email = document.getElementById('f_email').value.trim();
+    var order = document.getElementById('f_order').value.trim();
+
+    if (!name) { showErr('err1', 'Please enter your name.'); focusField('f_name'); return false; }
+    if (!email || !email.includes('@')) { showErr('err1', 'Please enter a valid email.'); focusField('f_email'); return false; }
+    if (!order) { showErr('err1', 'Please enter your order number.'); focusField('f_order'); return false; }
+    return true;
+  }
+
+  if (step === 2) {
+    var color = document.getElementById('chk_color').checked;
+    var material = document.getElementById('chk_material').checked;
+    if (!color && !material) { showErr('err2', 'Please select at least one option.'); return false; }
+    return true;
+  }
+
+  /* Steps 3 and 4 have no required fields */
+  return true;
+}
+
+function showErr(id, msg) {
+  document.getElementById(id).textContent = msg;
+}
+
+function focusField(id) {
+  var el = document.getElementById(id);
+  el.classList.add('error');
+  el.focus();
+}
+
+function clearErrors() {
+  document.querySelectorAll('.form-error').forEach(function(el) { el.textContent = ''; });
+  document.querySelectorAll('.field__input.error').forEach(function(el) { el.classList.remove('error'); });
+}
+
+/* Clear error styling on input */
+document.querySelectorAll('.field__input').forEach(function(input) {
+  input.addEventListener('input', function() {
+    this.classList.remove('error');
+    clearErrors();
+  });
+});
+
+function getFormData() {
+  var custom_type = [];
+  if (document.getElementById('chk_color').checked) custom_type.push('Color');
+  if (document.getElementById('chk_material').checked) custom_type.push('Material');
+
+  var Material_Finish = [];
+  document.querySelectorAll('.mat-chk:checked').forEach(function(chk) {
+    Material_Finish.push(chk.value);
+  });
+
+  return {
+    fullName: document.getElementById('f_name').value.trim(),
+    email: document.getElementById('f_email').value.trim(),
+    order_number: document.getElementById('f_order').value.trim(),
+    custom_type: custom_type,
+    color_hex: document.getElementById('f_hex').value.trim(),
+    Material_Finish: Material_Finish,
+    Other_material: document.getElementById('f_other_mat').value.trim(),
+    reference_link: document.getElementById('f_channel').value.trim()
+  };
+}
+
+function buildReview() {
+  var data = getFormData();
+  var rows = [
+    { label: 'Hey — what\'s your name?', value: data.fullName },
+    { label: 'What email did you use for your order?', value: data.email },
+    { label: 'What\'s your order number?', value: data.order_number },
+    { label: 'What would you like to customize?', value: data.custom_type.join(', ') }
+  ];
+
+  if (data.color_hex) rows.push({ label: 'HEX color code', value: data.color_hex });
+
+  var allMats = data.Material_Finish.join(', ');
+  if (data.Other_material) allMats = allMats ? allMats + ', ' + data.Other_material : data.Other_material;
+  if (allMats) rows.push({ label: 'Material | Finish', value: allMats });
+
+  if (data.reference_link) rows.push({ label: 'Channel Link', value: data.reference_link });
+
+  var html = '';
+  for (var i = 0; i < rows.length; i++) {
+    html += '<div class="review-row"><span class="review-label">' + escapeHtml(rows[i].label) + '</span><span class="review-value">' + escapeHtml(rows[i].value) + '</span></div>';
+  }
+  document.getElementById('reviewList').innerHTML = html;
+}
+
+function escapeHtml(str) {
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+async function submitForm() {
+  var btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Sending...';
+
+  var data = getFormData();
+
+  try {
+    var res = await fetch(WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    if (!res.ok) throw new Error('Webhook error');
+
+    /* Hide form, show success */
+    document.getElementById('step5').classList.remove('active');
+    document.querySelector('.progress').style.display = 'none';
+    document.getElementById('stepCount').style.display = 'none';
+    document.getElementById('successState').classList.add('active');
+
+  } catch (err) {
+    showErr('err5', 'Something went wrong. Please try again or DM me on X.');
+    btn.disabled = false;
+    btn.textContent = 'Submit';
+  }
+}
+</script>
+</body>
+</html>

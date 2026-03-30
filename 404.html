@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page not found - The Crazy Graphic Guy 😎</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=TASA+Orbiter:wght@400..800&family=DM+Sans:wght@200;300;400;500&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-deep: #07080f;
+  --bg-card: rgba(14, 16, 36, 0.85);
+  --accent: #00e5ff;
+  --accent-dim: rgba(0, 229, 255, 0.15);
+  --neon-pink: #ff2d6b;
+  --text-primary: #e8e8f0;
+  --text-body: #999999;
+  --text-dim: #5a5a5a;
+  --border-subtle: rgba(0, 229, 255, 0.1);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --container: 1140px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  background: var(--bg-deep);
+  color: var(--text-body);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.bg-grid {
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none; z-index: 0;
+}
+.bg-glow {
+  position: fixed;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  filter: blur(160px);
+  pointer-events: none; z-index: 0;
+}
+.bg-glow--cyan { background: var(--accent); top: -200px; right: -200px; opacity: 0.10; }
+.bg-glow--pink { background: var(--neon-pink); bottom: -300px; left: -200px; opacity: 0.05; }
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0; z-index: 100;
+  padding: 12px 1.5rem 0;
+}
+.nav.scrolled .nav__bar {
+  box-shadow: 0 4px 30px rgba(0, 229, 255, 0.06);
+}
+.nav__bar {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: var(--container);
+  margin: 0 auto;
+  background: rgba(14, 16, 36, 0.85);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 10px 20px;
+  transition: box-shadow 0.3s ease, border-radius 0.3s ease;
+}
+.nav__logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.nav__avatar { width: 32px; height: 32px; border-radius: 50%; }
+.nav__wordmark { height: 18px; opacity: 0.9; }
+.nav__links { display: flex; align-items: center; gap: 24px; }
+.nav__links a {
+  font-size: 13px; font-weight: 400;
+  color: var(--text-body); text-decoration: none;
+  transition: color 0.2s;
+}
+.nav__links a:hover { color: var(--text-primary); }
+.nav__cta {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px; font-weight: 500;
+  color: var(--bg-deep) !important;
+  background: var(--accent);
+  padding: 7px 14px; border-radius: 20px;
+  transition: opacity 0.2s, color 0.2s !important;
+}
+.nav__cta:hover { opacity: 0.85; }
+.nav__hamburger {
+  display: none;
+  flex-direction: column; gap: 4px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.nav__hamburger span {
+  display: block; width: 18px; height: 1.5px;
+  background: var(--text-body);
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav__mobile-menu {
+  display: none;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+/* 404 */
+.lost {
+  position: relative; z-index: 1;
+  min-height: 60dvh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 120px 0 80px;
+  text-align: center;
+}
+.lost__code {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 96px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 16px;
+  text-shadow: 0 0 40px var(--accent-dim), 0 0 80px rgba(0, 229, 255, 0.1);
+}
+.lost__title {
+  font-family: 'TASA Orbiter', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+.lost__text {
+  font-size: 15px;
+  color: var(--text-body);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.lost__btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; font-weight: 600;
+  color: var(--bg-deep);
+  background: var(--neon-pink);
+  border: none; border-radius: var(--radius);
+  padding: 16px 32px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+  box-shadow: 0 4px 24px rgba(255, 45, 107, 0.25);
+}
+.lost__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(255, 45, 107, 0.35);
+}
+.lost__btn:active { transform: translateY(0); }
+.lost__btn svg { width: 18px; height: 18px; }
+
+/* FOOTER */
+footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 48px 0 32px;
+}
+.footer__top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 40px; margin-bottom: 32px;
+}
+.footer__brand-logo {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 16px;
+}
+.footer__brand-logo img:first-child { width: 32px; height: 32px; border-radius: 50%; }
+.footer__brand-logo img:last-child { height: 16px; opacity: 0.7; }
+.footer__tagline {
+  font-size: 13px; color: var(--text-dim);
+  line-height: 1.6; max-width: 320px; font-weight: 300;
+}
+.footer__tagline strong {
+  display: block; color: var(--text-body);
+  font-weight: 400; margin-top: 8px;
+}
+.footer__links { display: flex; gap: 48px; justify-content: flex-end; }
+.footer__col h4 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px; font-weight: 700;
+  color: var(--text-dim); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 14px;
+}
+.footer__col a {
+  display: block; font-size: 13px;
+  color: var(--text-body); text-decoration: none;
+  padding: 4px 0; transition: color 0.2s; font-weight: 400;
+}
+.footer__col a:hover { color: var(--text-primary); }
+.footer__bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+.footer__copy { font-size: 12px; color: var(--text-dim); font-weight: 300; }
+.footer__copy a { color: var(--text-dim); text-decoration: none; }
+.footer__copy a:hover { color: var(--text-body); }
+.footer__humans { font-size: 12px; color: var(--text-dim); font-weight: 400; }
+
+@media (max-width: 768px) {
+  .nav__links { display: none; }
+  .nav__hamburger { display: flex; }
+  .nav { padding: 8px 1rem 0; }
+  .nav.menu-open .nav__bar {
+    border-radius: 14px 14px 0 0;
+    border-bottom-color: transparent;
+  }
+  .nav__mobile-menu.open {
+    display: flex; flex-direction: column; gap: 16px;
+    background: rgba(14, 16, 36, 0.95);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle); border-top: none;
+    border-radius: 0 0 14px 14px;
+    padding: 20px 24px; margin-top: -1px;
+  }
+  .nav__mobile-menu a {
+    font-size: 14px; color: var(--text-body);
+    text-decoration: none; padding: 8px 0; transition: color 0.2s;
+  }
+  .nav__mobile-menu a:hover { color: var(--text-primary); }
+  .lost { padding: 100px 0 60px; }
+  .lost__code { font-size: 64px; }
+  .lost__title { font-size: 20px; }
+  .footer__top { grid-template-columns: 1fr; gap: 32px; }
+  .footer__links { gap: 24px; justify-content: flex-start; }
+  .footer__bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+@media (max-width: 480px) {
+  .footer__links { flex-direction: column; gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow--cyan"></div>
+<div class="bg-glow bg-glow--pink"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav__bar">
+    <a href="/" class="nav__logo">
+      <img src="https://framerusercontent.com/images/eng142NeUZhf3lahgIltzclPUVs.png?width=64&height=64" alt="TCGG" class="nav__avatar" width="32" height="32">
+      <img src="https://framerusercontent.com/images/QwXNuaeuuNrueqrUOfLtZdEkYk.svg?width=419&height=43" alt="The Crazy Graphic Guy" class="nav__wordmark" height="18">
+    </a>
+    <div class="nav__links">
+      <a href="/">YouTube Assets</a>
+      <a href="/about">Who is TCGG</a>
+      <a href="/contact">Contact & Help</a>
+      <a href="/wall-of-love">Wall of Creators</a>
+      <a href="https://tools.thecrazygraphicguy.com/channel-score/" class="nav__cta">Find Your Channel Score</a>
+    </div>
+    <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__mobile-menu" id="mobileMenu">
+    <a href="/">YouTube Assets</a>
+    <a href="/about">Who is TCGG</a>
+    <a href="/contact">Contact & Help</a>
+    <a href="/wall-of-love">Wall of Creators</a>
+    <a href="https://tools.thecrazygraphicguy.com/channel-score/">Find Your Channel Score</a>
+  </div>
+</nav>
+
+<!-- 404 -->
+<main class="lost">
+  <div class="container">
+    <div class="lost__code">404</div>
+    <h1 class="lost__title">This page doesn't exist</h1>
+    <p class="lost__text">Whatever you were looking for isn't here. Maybe it moved, maybe it never existed. Either way, let's get you back.</p>
+    <a href="/" class="lost__btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to home
+    </a>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="footer__brand-logo">
+          <img src="https://framerusercontent.com/images/eng142NeUZhf3lahgIltzclPUVs.png?width=64&height=64" alt="TCGG" width="32" height="32">
+          <img src="https://framerusercontent.com/images/QwXNuaeuuNrueqrUOfLtZdEkYk.svg?width=419&height=43" alt="The Crazy Graphic Guy" height="16">
+        </div>
+        <p class="footer__tagline">Your channel deserves to look fire 🔥<br>making YouTube assets that should've existed by now &bull; built for cool creators who edit their own videos &bull; you're not small. you're early<strong>drop it in &rarr; look pro &rarr; grow faster</strong></p>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <h4>Shop</h4>
+          <a href="/">YouTube CTAs</a>
+          <a href="/">All Products</a>
+        </div>
+        <div class="footer__col">
+          <h4>Company</h4>
+          <a href="/about">Who is TCGG</a>
+          <a href="/contact">Contact & Help</a>
+          <a href="/wall-of-love">Wall of Creators</a>
+        </div>
+        <div class="footer__col">
+          <h4>Tools</h4>
+          <a href="https://tools.thecrazygraphicguy.com/channel-score/">Channel Score</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__copy">Copyright &copy; 2026 The Crazy Graphic Guy &middot; All rights reserved. <a href="/terms-of-service">Terms</a> &middot; <a href="/refund-policy">Refunds</a></div>
+      <div class="footer__humans">Made by humans for humans</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll', function() {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+}, { passive: true });
+
+document.getElementById('hamburger').addEventListener('click', function() {
+  var menu = document.getElementById('mobileMenu');
+  var nav = document.getElementById('nav');
+  menu.classList.toggle('open');
+  nav.classList.toggle('menu-open');
+  var spans = this.querySelectorAll('span');
+  if (menu.classList.contains('open')) {
+    spans[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
+  } else {
+    spans[0].style.transform = 'none';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'none';
+  }
+});
+</script>
+</body>
+</html>
